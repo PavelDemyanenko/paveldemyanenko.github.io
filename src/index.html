@@ -24,9 +24,19 @@
   <!-- substitute:css -->
 </head>
 <body ng-app="app" ng-controller="HomeCtrl">
-  <h1>site v{{version}}</h1>
-  <p>Welcome to your app!</p>
-  <p>We know you have things to do, so we won't bother you with too much generated code. Happy coding ;-)</p>
+  <header>
+    <nav>
+      <a href="#">work</a>
+      <a href="#">about</a>
+      <a href="#">contact</a>
+    </nav>
+  </header>
+  <div class="page">
+    <section class="home"></section>
+    <section class="work"></section>
+  </div>
+  <section class="contact"></section>
+  <section class="about"></section>
 
   <!-- substitute:livereload -->
   <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>

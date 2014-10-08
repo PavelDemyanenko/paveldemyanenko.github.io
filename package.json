@@ -18,7 +18,8 @@
     "gulp-sass": "~0.7.2",
     "coffeeify": "~0.6.0",
     "pho-devstack": "~1.4.0",
-    "node.extend": "~1.0.10"
+    "node.extend": "~1.0.10",
+    "node-bourbon": "^1.2.3"
   },
   "scripts": {
     "start": "gulp & open dist/index.html"

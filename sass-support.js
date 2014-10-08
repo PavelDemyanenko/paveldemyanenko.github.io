@@ -11,10 +11,11 @@ module.exports = function (pho) {
   var sassConfig = {
     /* SASS style file compilation */
     enabled: true,
-      errLogToConsole: false,
-      includePaths: [               // directories for locating Sass files
+    errLogToConsole: false,
+    includePaths: [               // directories for locating Sass files
       'src/styles/',
-      'src/bower_components/'
+      'src/bower_components/',
+      require('node-bourbon').includePaths
     ],
     outputStyle: 'compressed'
   };
