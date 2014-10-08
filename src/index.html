@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html ng-app="app">
 <head>
   <meta charset="utf-8">
   <title>site</title>
@@ -23,20 +23,15 @@
 
   <!-- substitute:css -->
 </head>
-<body ng-app="app" ng-controller="HomeCtrl">
+<body ng-controller="homeCtrl">
   <header>
     <nav>
       <a href="#">work</a>
-      <a href="#">about</a>
-      <a href="#">contact</a>
+      <a href="#about">about</a>
+      <a href="#contact">contact</a>
     </nav>
   </header>
-  <div class="page">
-    <section class="home"></section>
-    <section class="work"></section>
-  </div>
-  <section class="contact"></section>
-  <section class="about"></section>
+  <div ng-view></div>
 
   <!-- substitute:livereload -->
   <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
