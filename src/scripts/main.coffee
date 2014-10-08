@@ -1,4 +1,5 @@
 site = angular.module "app", [
+  'ngAnimate',
   'ngRoute',
   require("./pages/home").name,
   require("./pages/about").name,
