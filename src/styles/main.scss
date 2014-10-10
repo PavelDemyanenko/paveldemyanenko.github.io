@@ -17,10 +17,18 @@
  *   - footer, header, user profile,…
  */
 
+
 /*
-*  A simple and lightweight mixin library for Sass.
-*/
+ * A simple and lightweight mixin library for Sass.
+ */
 @import "bourbon";
+
+
+/*
+ * Page animations.
+ */
+@import "animations";
+
 
 /*
  * Import Bower components (include path is predefined)
@@ -28,8 +36,8 @@
 
 
 /*
-* Base
-*/
+ * Base
+ */
 @import "base/normalize";
 @import "base/global";
 @import "base/fonts";
@@ -37,14 +45,14 @@
 
 
 /*
-* Components
-*/
+ * Components
+ */
 @import "components/social-buttons";
 
 
 /*
-* Modules
-*/
+ * Modules
+ */
 @import "modules/footer";
 @import "modules/header";
 @import "modules/page";
