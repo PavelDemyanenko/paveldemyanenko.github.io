@@ -13,7 +13,7 @@ var pho = require('pho-devstack')(gulp, {
     scriptFiles: '**/*.coffee'
   },
   dist: {
-    scriptMain: 'main.js',
+    scriptMain: 'main.js'
   },
   browserify: {
     extensions: ['.coffee'],

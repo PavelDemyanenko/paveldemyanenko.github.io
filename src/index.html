@@ -25,6 +25,9 @@
 </head>
 <body ng-controller="homeCtrl">
   <header>
+    <div id="title" data-0="font-size: 48px;" data-128="font-size: 18px;">
+      Pavel Demyanenko
+    </div>
     <nav>
       <a href="#">work</a>
       <a href="#about">about</a>
@@ -32,6 +35,9 @@
     </nav>
   </header>
   <div class="page {{ pageClass }}" ng-view></div>
+
+  </div>
+
   <footer></footer>
   <!-- substitute:livereload -->
   <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>

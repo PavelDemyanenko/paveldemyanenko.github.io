@@ -1,0 +1,16 @@
+header {
+  display: block;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  background-color: white;
+  padding: 0 16px;
+  .title {
+    padding: 21px;
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+  }
+}
