@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "dependencies": {
     "angular": "~1.2.9",
-    "skrollr": "~0.6.27"
+    "skrollr": "~0.6.27",
+    "jQuery": "~2.1.1"
   },
   "devDependencies": {
     "angular-route": "~1.2.26",

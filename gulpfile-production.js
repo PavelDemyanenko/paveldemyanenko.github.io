@@ -45,7 +45,7 @@ var pho = require('pho-devstack')(gulp, {
     // cdn: 'http://example.com' // url to your CDN server
     // cdn: '/', // uncomment if you are using absolute paths without CDN
   }),
-  copy: ['humans.txt', 'bower_components/angular/**/*.{js,map}', 'bower_components/angular-route/**/*.{js,map}', 'src/bower_components/angular-animate/**/*.{js,map}']
+  copy: ['humans.txt', 'bower_components/*/*.{js,map}']
 });
 
 // If needed, redefine tasks here
