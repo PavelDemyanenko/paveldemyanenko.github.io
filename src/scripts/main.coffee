@@ -1,6 +1,8 @@
 site = angular.module "app", [
-  'ngAnimate',
-  'ngRoute',
+  "ngAnimate",
+  "ngRoute",
+  require("./services").name,
+  require("./directives").name,
   require("./pages/home").name,
   require("./pages/about").name,
   require("./pages/contact").name

@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="app" class="skrollr skrollr-desktop">
+<html ng-app="app" class="skrollr skrollr-desktop" skrollr-tag>
 <head>
   <meta charset="utf-8">
   <title>site</title>
@@ -34,8 +34,9 @@
       <a href="#contact">contact</a>
     </nav>
   </header>
-  <div class="page {{ pageClass }}" ng-view></div>
-
+  <div class="page {{ pageClass }}" skrollr-tag>
+    <div class="content" data-0="padding-top: 192px;" data-192="padding-top: 190px;" ng-view>
+    </div>
   </div>
 
   <footer></footer>
@@ -45,13 +46,6 @@
   <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
   <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
   <script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
-  <script>
-    $(document).ready(function () {
-      skrollr.init({
-        smoothScrolling: true
-      });
-    });
-  </script>
 
   <!-- substitute:js -->
   <!-- Google Analytics -->
