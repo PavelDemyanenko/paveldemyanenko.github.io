@@ -1,0 +1,19 @@
+footer {
+  font-family: 'Montserrat';
+  .container {
+    width: 960px;
+    margin: 0 auto;
+    .column {
+      float: left;
+      p {
+        &.issues {
+          margin-bottom: 20px;
+          a {
+            height: 20px;
+            color: #2267a2;
+          }
+        }
+      }
+    }
+  }
+}

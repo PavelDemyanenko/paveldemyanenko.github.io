@@ -58,8 +58,22 @@
       <!--<a href="#contact"></i>contact</a>-->
     <!--</nav>-->
   </header>
-  <div class="page {{ pageClass }}" data-0="padding-top: 192px;" data-192="padding-top: 190px;" ng-view skrollr-tag></div>
-  <footer></footer>
+  <div class="page {{ pageClass }}"
+       data-0="padding-top: 192px;"
+       data-192="padding-top: 190px;" ng-view skrollr-tag>
+  </div>
+  <footer>
+    <div class="container">
+      <div class="column">
+        <p class="issues"><i class="fa fa-github-alt"></i>
+          Found a bug?
+          <a href="https://github.com/PavelDemyanenko/site/issues">Create an Issue on Github</a>
+        </p>
+      </div>
+      <aside class="column"></aside>
+    </div>
+
+  </footer>
   <!-- substitute:livereload -->
   <script type="text/javascript" src="bower_components/jQuery/dist/jquery.min.js"></script>
   <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
