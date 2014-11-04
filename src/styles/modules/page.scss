@@ -4,3 +4,21 @@
  * - Components:
  *   - component.less
  */
+
+body {
+  height: 1000px;
+}
+.page {
+  font-family: 'Montserrat';
+  h1 {
+    font-weight: 200;
+  }
+  p {
+    color: #333;
+  }
+  &.page-home {
+    padding-left: 105px;
+    padding-right: 105px;
+
+  }
+}

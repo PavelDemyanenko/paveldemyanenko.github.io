@@ -3,14 +3,27 @@ header {
   position: fixed;
   width: 100%;
   z-index: 10;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  background-color: grey;
-  padding: 0 16px;
+  @include box-sizing(border-box);
+  background-color: white;
   .title {
-    padding: 21px;
+    top: 15px;
+    left: 105px;
+    position: absolute;
+    font-family: $font_family;
+  }
+  nav {
+    position: absolute;
+    right: 25px;
+    top: 30px;
+    a {
+      margin: 0 10px;
+      color: $font_color;
+    }
+  }
+  .shadow-border {
+    width: 100%;
     position: absolute;
     bottom: 0;
-    color: black;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
   }
 }
