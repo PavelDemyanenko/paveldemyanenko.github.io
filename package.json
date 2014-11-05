@@ -19,7 +19,8 @@
     "coffeeify": "~0.6.0",
     "pho-devstack": "~1.4.0",
     "node.extend": "~1.0.10",
-    "node-bourbon": "^1.2.3"
+    "node-bourbon": "^1.2.3",
+    "node-neat": "^1.3.0"
   },
   "scripts": {
     "start": "gulp & open dist/index.html"

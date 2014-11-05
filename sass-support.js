@@ -15,11 +15,9 @@ module.exports = function (pho) {
     includePaths: [               // directories for locating Sass files
       'src/styles/',
       'src/bower_components/',
-      require('node-bourbon').includePaths
-    ],
+    ].concat(require('node-neat').includePaths),
     outputStyle: 'compressed'
   };
-
   gulp.task('styles', function(cb) {
     if (cache.isClean('styles')) { return cb(); }
     cache.setClean('styles');
