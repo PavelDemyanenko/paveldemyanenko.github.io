@@ -47,7 +47,6 @@
           }
           figcaption {
             padding: 2em;
-            color: #fff;
             text-transform: uppercase;
             font-size: 1.25em;
             -webkit-backface-visibility: hidden;
@@ -82,17 +81,32 @@
             margin: 0;
             letter-spacing: 1px;
             font-size: 68.5%;
-            color: white;
           }
           &.evrone {
             width: 480px;
             height: 360px;
-            background-color: #ec2028;
+            border: 5px solid #ec2028;
+            color: #ec2028;
+            background: transparent;
+            h2, p {
+              color: #ec2028;
+            }
+            h2::after {
+              background: #ec2028;
+            }
           }
           &.t-systems {
             width: 480px;
             height: 360px;
-            background-color: #e20074;
+            border: 5px solid #e20074;
+            color: #e20074;
+            background: transparent;
+            h2, p {
+              color: #e20074;
+            }
+            h2::after {
+              background: #e20074;
+            }
           }
         }
       }
@@ -135,7 +149,6 @@
         left: 0;
         width: 100%;
         height: 4px;
-        background: #fff;
         content: '';
         -webkit-transform: translate3d(0,40px,0);
         transform: translate3d(0,40px,0);
