@@ -154,8 +154,7 @@
   figure.effect h2::after,
   figure.effect p {
     opacity: 0;
-    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-    transition: opacity 0.35s, transform 0.35s;
+    @include transition(all 0.35s ease);
   }
 
   figure.effect:hover h2::after,
