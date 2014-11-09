@@ -5,11 +5,9 @@ header {
   z-index: 10;
   @include box-sizing(border-box);
   background-color: white;
-  .title {
-    top: 15px;
+  .logo {
     left: 105px;
     position: absolute;
-    font-family: $font_family;
   }
   nav {
     position: absolute;
