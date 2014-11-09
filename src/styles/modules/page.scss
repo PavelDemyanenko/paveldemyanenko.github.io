@@ -10,6 +10,7 @@
 .page {
   font-family: $font_family;
   @include outer-container;
+  flex: 1;
   h1 {
     font-weight: 200;
   }
