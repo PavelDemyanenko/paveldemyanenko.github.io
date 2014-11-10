@@ -4,7 +4,8 @@
   "dependencies": {
     "angular": "~1.2.9",
     "skrollr": "~0.6.27",
-    "jQuery": "~2.1.1"
+    "jQuery": "~2.1.1",
+    "angular-loading-bar": "~0.6.0"
   },
   "devDependencies": {
     "angular-route": "~1.2.26",

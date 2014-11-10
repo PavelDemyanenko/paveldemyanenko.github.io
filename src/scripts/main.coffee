@@ -1,4 +1,5 @@
 site = angular.module "app", [
+  "angular-loading-bar",
   "ngAnimate",
   "ngRoute",
   require("./services").name,

@@ -2,7 +2,7 @@ header {
   display: block;
   position: fixed;
   width: 100%;
-  z-index: 10;
+  z-index: 1001;
   @include box-sizing(border-box);
   background-color: white;
   .logo {

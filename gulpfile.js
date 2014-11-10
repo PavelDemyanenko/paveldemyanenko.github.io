@@ -30,7 +30,7 @@ var pho = require('pho-devstack')(gulp, {
       return "<script>document.write('<script src=\"http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1\"></' + 'script>')</script>";
     }
   }),
-  copy: ['images/sprites/**/*', 'humans.txt', 'bower_components/**/*.{js,map}', 'fonts/**/*']
+  copy: ['images/sprites/**/*', 'humans.txt', 'bower_components/**/*.{js,map,css}', 'fonts/**/*']
 });
 
 // If needed, redefine tasks here
