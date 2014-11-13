@@ -5,7 +5,7 @@
  *   - component.less
  */
 
-@import "../components/slider";
+@import "../components/job-item";
 
 .page {
   font-family: $font_family;
@@ -23,6 +23,12 @@
     }
     .work{
       overflow: hidden;
+      position: relative;
+      margin: 0 auto;
+      padding: 1em 0 4em;
+      max-width: 1000px;
+      list-style: none;
+      text-align: center;
 
     }
   }
