@@ -6,6 +6,7 @@
  */
 
 @import "../components/job-item";
+@import "../components/hamburger-menu";
 
 .page {
   font-family: $font_family;
@@ -29,7 +30,6 @@
       max-width: 1000px;
       list-style: none;
       text-align: center;
-
     }
   }
 }

@@ -1,0 +1,55 @@
+%icon {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 10px;
+  height: 6em;
+  margin: 2%;
+  position: relative;
+  user-select: none;
+  transition: ease-in-out 0.2s;
+  width: 6em;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+  span {
+    background: black;
+    backface-visibility: hidden;
+    height: 0.8em;
+    position: absolute;
+    transition: ease-in-out 0.2s;
+    width: 100%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+  }
+}
+
+
+%hamburger {
+  @extend %icon;
+
+  span{
+    left: 0;
+
+    &:nth-child(1) {
+      top: 1em;
+    }
+    &:nth-child(2) {
+      top: 2.6em;
+    }
+    &:nth-child(3) {
+      top: 4.2em;
+    }
+  }
+
+
+  &.open span{
+    &:nth-child(1) {
+      transform: rotate(45deg) translate(1.1em, 1.1em);
+    }
+    &:nth-child(2) {
+      opacity: 0;
+    }
+    &:nth-child(3) {
+      transform: rotate(-45deg) translate(1.1em , -1.1em);
+    }
+  }
+}
+
