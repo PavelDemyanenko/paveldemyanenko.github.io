@@ -1,0 +1,53 @@
+$numberOfMenuItems: 3;
+
+$menuItemHeight: 100 / $numberOfMenuItems;
+
+.hamburgerMenu {
+  .menu {
+    opacity: 0;
+    z-index: -1;
+    @include transition(opacity 0);
+  }
+  &.open {
+    .menu {
+      position: fixed;
+      overflow-y: hidden;
+      z-index: 1;
+      opacity: 1;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(white, 0.9);
+      border-top: 1px solid #3D3527;
+      @include transition(opacity 800ms);
+      .nav, .nav li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-align: center;
+      }
+
+      .nav a {
+        display: block;
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        background: transparent;
+        border-bottom: 1px solid #3D3527;
+        color: #3D3527;
+        font-size: 300%;
+        letter-spacing: 1vw;
+        line-height: $menuItemHeight + vh;
+        text-decoration: none;
+        text-transform: uppercase;
+
+        &:hover, &:focus {
+          background: rgba(#3D3527, 0.9);
+          color: #EDE1CC;
+          @include transition-property(background-color, color);
+          @include transition-duration(800ms);
+        }
+      }
+    }
+  }
+}
+

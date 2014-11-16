@@ -1,4 +1,8 @@
+@import "../components/hamburger-menu";
+@import "../components/header-menu";
+
 header {
+  font-family: $font_family;
   display: block;
   position: fixed;
   width: 100%;
@@ -9,13 +13,17 @@ header {
     left: 105px;
     position: absolute;
   }
-  nav {
-    position: absolute;
-    right: 25px;
-    top: 30px;
-    a {
-      margin: 0 10px;
-      color: $font_color;
+  .hamburger {
+    margin-right: 150px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 2;
+    > span {
+      background: black;
+    }
+    &.open {
+      background: black;
     }
   }
   .shadow-border {
