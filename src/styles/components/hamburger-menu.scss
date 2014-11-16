@@ -11,7 +11,7 @@
   border: none !important;
   span {
     left: 0;
-    background: black;
+    background: #333;
     @include backface-visibility(hidden);
     height: 0.8em;
     position: absolute;

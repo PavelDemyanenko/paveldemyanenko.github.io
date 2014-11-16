@@ -17,7 +17,6 @@ $menuItemHeight: 100 / $numberOfMenuItems;
       width: 100vw;
       height: 100vh;
       background: rgba(white, 0.9);
-      border-top: 1px solid #3D3527;
       @include transition(opacity 800ms);
       .nav, .nav li {
         margin: 0;
@@ -32,19 +31,26 @@ $menuItemHeight: 100 / $numberOfMenuItems;
         z-index: 3;
         width: 100%;
         background: transparent;
-        border-bottom: 1px solid #3D3527;
-        color: #3D3527;
+        color: #1c1c1c;
         font-size: 300%;
         letter-spacing: 1vw;
         line-height: $menuItemHeight + vh;
         text-decoration: none;
         text-transform: uppercase;
-
+        border-bottom: none !important;
         &:hover, &:focus {
-          background: rgba(#3D3527, 0.9);
-          color: #EDE1CC;
+          color: white;
           @include transition-property(background-color, color);
-          @include transition-duration(800ms);
+          @include transition-duration(400ms);
+          &.home {
+            background: rgba(#21c6ce, 0.9);
+          }
+          &.about {
+            background: rgba(#ffd934, 0.9);
+          }
+          &.contact {
+            background: rgba(#8900ce, 0.9);
+          }
         }
       }
     }

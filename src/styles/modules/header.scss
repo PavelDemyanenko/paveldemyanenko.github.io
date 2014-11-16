@@ -14,7 +14,7 @@ header {
     position: absolute;
   }
   .hamburger {
-    margin-right: 150px;
+    margin: 1.5% 5%;
     position: fixed;
     right: 0;
     top: 0;
@@ -22,9 +22,7 @@ header {
     > span {
       background: black;
     }
-    &.open {
-      background: black;
-    }
+    &.open { }
   }
   .shadow-border {
     width: 100%;

@@ -35,6 +35,7 @@ angular.module("app.directives")
     restrict: "C"
     link: ($scope, element, attrs, hamburgerMenu) ->
       element.on "click", ->
+        element.toggleClass "open"
         hamburgerMenu.toggle()
         return
 
