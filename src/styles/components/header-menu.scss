@@ -41,7 +41,7 @@ $menuItemHeight: 100 / $numberOfMenuItems;
         &:hover, &:focus {
           color: white;
           @include transition-property(background-color, color);
-          @include transition-duration(400ms);
+          @include transition-duration(150ms);
           &.home {
             background: rgba(#21c6ce, 0.9);
           }
