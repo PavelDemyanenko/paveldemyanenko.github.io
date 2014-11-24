@@ -5,13 +5,17 @@ header {
   font-family: $font_family;
   display: block;
   position: fixed;
-  width: 100%;
+  width: 100% !important;
   z-index: 1001;
   @include box-sizing(border-box);
   background-color: white;
-  .logo {
-    left: 105px;
+  section {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 100%;
+    overflow: hidden;
     position: absolute;
+    width: 100%;
   }
   .hamburger {
     margin: 1.5% 5%;
