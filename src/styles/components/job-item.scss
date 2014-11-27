@@ -12,6 +12,33 @@ figure {
   cursor: pointer;
   border: 5px solid;
   background: transparent;
+  .skills {
+    text-align: right;
+    margin-top: 75px;
+    span {
+      margin-left: 10px;
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      &.ux {
+        position: absolute;
+        border-radius: 30px;
+        color: white;
+        font-size: 14px;
+        line-height: 31px;
+        text-align: center;
+        vertical-align: top;
+        @include transition(opacity 5s);
+        &.hidden { opacity: 0; }
+      }
+      &.rails {
+        width:23px;
+      }
+      img {
+        opacity: 1;
+      }
+    }
+  }
   img {
     position: relative;
     display: block;
@@ -73,6 +100,9 @@ figure {
     }
     h2::after {
       background: #e20074;
+    }
+    .skills {
+      padding-right: 37px;
     }
   }
   &.id-company {
