@@ -1,6 +1,6 @@
 @import "hamburger";
 
-$numberOfMenuItems: 3;
+$numberOfMenuItems: 4;
 
 $menuItemHeight: 100 / $numberOfMenuItems;
 
@@ -53,6 +53,9 @@ $menuItemHeight: 100 / $numberOfMenuItems;
           }
           &.contact {
             background: rgba(#8900ce, 0.9);
+          }
+          &.blog {
+            background: rgba(#e20074, 0.9);
           }
         }
       }

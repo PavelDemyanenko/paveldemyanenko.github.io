@@ -10,7 +10,8 @@ angular.module("app.directives")
           win = angular.element($window)
           menu = $scope.menu = element
           $scope.hide = ->
-            menu.removeClass "open"
+            menu.toggleClass "open"
+            menu.find(".open").toggleClass "open"
             return
 
           win.bind "resize.body", $scope.hide
