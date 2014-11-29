@@ -9,9 +9,13 @@ angular.module("app.directives")
         link: ($scope, element, attrs) ->
           win = angular.element($window)
           menu = $scope.menu = element
+          list = $scope.list = menu.find(".hamburger-list")
+          toggle = $scope.toggle = menu.find(".hamburger-toggle")
           $scope.hide = ->
-            menu.toggleClass "open"
-            menu.find(".open").toggleClass "open"
+            console.log toggle
+            menu.removeClass "open"
+            list.removeClass "open"
+            toggle.removeClass "open"
             return
 
           win.bind "resize.body", $scope.hide
@@ -32,7 +36,7 @@ angular.module("app.directives")
             return
         ]
       )
-  ]).directive("toggleHamburger", [->
+  ]).directive("hamburgerToggle", [->
     require: "^hamburgerMenu"
     restrict: "C"
     link: ($scope, element, attrs, hamburgerMenu) ->
