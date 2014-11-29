@@ -1,10 +1,8 @@
 angular.module("app.directives")
-  .directive("uxIcon", [
-    "$window"
-    ($window) ->
+  .directive("uxIcon", [ ->
       return (
         scope: {}
-        restrict: "E"
+        restrict: "C"
         templateUrl: "scripts/directives/templates/ux-icon.html"
         link: ($scope, element, attrs) ->
           uxIcon = $scope.uxIcon = element

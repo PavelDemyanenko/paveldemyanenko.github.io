@@ -1,0 +1,13 @@
+@import "../../components/home/job-item";
+
+.page-home {
+  .jobs{
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+    padding: 1em 0 4em;
+    max-width: 1000px;
+    list-style: none;
+    text-align: center;
+  }
+}

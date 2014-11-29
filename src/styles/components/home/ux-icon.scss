@@ -1,0 +1,13 @@
+.ux {
+  position: absolute;
+  border-radius: 30px;
+  width: 30px;
+  height: 30px;
+  color: white;
+  font-size: 14px;
+  line-height: 31px;
+  text-align: center;
+  vertical-align: top;
+  @include transition(opacity 5s);
+  &.hidden { opacity: 0; }
+}

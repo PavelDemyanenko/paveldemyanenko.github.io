@@ -1,28 +1,27 @@
-/* ANIMATIONS */
+.page-home{
+  &.ng-leave {
 
-/* page specific animations ------------------------ */
+  }
+  &.ng-enter {
 
-/* home -------------------------- */
-.page-home.ng-leave         {
-
-}
-.page-home.ng-enter 		{
-
+  }
 }
 
-/* about ------------------------ */
-.page-about.ng-leave        {
+.page-about {
+  &.ng-leave {
 
+  }
+  &.ng-enter {
+
+  }
 }
-.page-about.ng-enter 		{
 
-}
+.page-contact {
+  &.ng-leave {
 
-/* contact ---------------------- */
-.page-contact.ng-leave      {
+  }
+  &.ng-enter {
 
-}
-.page-contact.ng-enter 		{
-
+  }
 }
 

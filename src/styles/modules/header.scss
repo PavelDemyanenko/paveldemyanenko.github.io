@@ -1,15 +1,15 @@
-@import "../components/hamburger-menu";
-@import "../components/header-menu";
+@import "../components/header/hamburger-menu";
+@import "../components/header/header-menu";
 
 header {
-  font-family: $font_family;
+  background-color: white;
   display: block;
   position: fixed;
   width: 100%;
-  z-index: 1001;
   @include box-sizing(border-box);
-  background-color: white;
+  font-family: $font_family;
   text-align: center;
+  z-index: 1001;
   .logo {
     display: inline-block;
     margin: 0 auto;
@@ -19,7 +19,7 @@ header {
     position: fixed;
     right: 0;
     top: 0;
-    z-index: 2;
+    z-index: 10;
     > span {
       background: black;
     }

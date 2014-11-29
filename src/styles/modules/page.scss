@@ -1,11 +1,4 @@
-/*
- * Description
- *
- * - Components:
- *   - component.less
- */
-
-@import "../components/job-item";
+@import "home/page-home";
 
 .page {
   font-family: $font_family;
@@ -16,19 +9,5 @@
   }
   p {
     color: #333;
-  }
-  &.page-home {
-    .about {
-      padding: 0 15px;
-    }
-    .work{
-      overflow: hidden;
-      position: relative;
-      margin: 0 auto;
-      padding: 1em 0 4em;
-      max-width: 1000px;
-      list-style: none;
-      text-align: center;
-    }
   }
 }
