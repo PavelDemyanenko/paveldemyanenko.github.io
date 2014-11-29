@@ -1,6 +1,5 @@
 @import "../components/hamburger-menu";
 @import "../components/header-menu";
-@import "../components/logo";
 
 header {
   font-family: $font_family;
@@ -8,9 +7,15 @@ header {
   position: fixed;
   width: 100%;
   z-index: 1001;
+  @include box-sizing(border-box);
   background-color: white;
+  text-align: center;
+  .logo {
+    display: inline-block;
+    margin: 0 auto;
+  }
   .hamburger {
-    margin: 15px 5% 1.5% 5%;
+    margin: 1.5% 5%;
     position: fixed;
     right: 0;
     top: 0;
