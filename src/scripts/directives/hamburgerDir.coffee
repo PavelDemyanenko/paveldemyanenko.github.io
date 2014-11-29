@@ -12,7 +12,6 @@ angular.module("app.directives")
           list = $scope.list = menu.find(".hamburger-list")
           toggle = $scope.toggle = menu.find(".hamburger-toggle")
           $scope.hide = ->
-            console.log toggle
             menu.removeClass "open"
             list.removeClass "open"
             toggle.removeClass "open"
