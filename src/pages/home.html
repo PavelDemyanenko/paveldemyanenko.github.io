@@ -1,6 +1,5 @@
 <section class="work">
   <figure class="effect t-systems">
-
     <figcaption>
       <h2>Currently in T-Systems</h2>
       <p>UI Expert Developer.</p>
@@ -10,8 +9,7 @@
         <span class="grunt"><img src="images/grunt.svg"/></span>
         <span class="html5"><img src="images/html.svg"/></span>
         <span class="css3"><img src="images/css.svg"/></span>
-        <span class="ux">ux</span>
-        <span class="ux hidden">ux</span>
+        <ux-icon></ux-icon>
       </div>
       <a href="#">View more</a>
     </figcaption>
@@ -61,34 +59,3 @@
     </figcaption>
   </figure>
 </section>
-
-<script>
-  // TODO directive, css?
-  function newGradient() {
-    var c1 = {
-      r: Math.floor(Math.random()*255),
-      g: Math.floor(Math.random()*255),
-      b: Math.floor(Math.random()*255)
-    };
-    var c2 = {
-      r: Math.floor(Math.random()*255),
-      g: Math.floor(Math.random()*255),
-      b: Math.floor(Math.random()*255)
-    };
-    c1.rgb = 'rgb('+c1.r+','+c1.g+','+c1.b+')';
-    c2.rgb = 'rgb('+c2.r+','+c2.g+','+c2.b+')';
-    return 'radial-gradient(at top left, '+c1.rgb+', '+c2.rgb+')';
-  }
-
-  function rollBg() {
-    $('.ux.hidden').css('background', newGradient());
-    $('.ux').toggleClass('hidden');
-  }
-
-  $(document).ready(function() {
-    rollBg();
-    setInterval(rollBg, 5000);
-  });
-
-</script>
-

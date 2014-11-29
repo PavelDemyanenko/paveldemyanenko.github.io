@@ -1,24 +1,16 @@
 @import "../components/hamburger-menu";
 @import "../components/header-menu";
+@import "../components/logo";
 
 header {
   font-family: $font_family;
   display: block;
   position: fixed;
-  width: 100% !important;
+  width: 100%;
   z-index: 1001;
-  @include box-sizing(border-box);
   background-color: white;
-  section {
-    text-align: center;
-    margin: 0 auto;
-    max-width: 100%;
-    overflow: hidden;
-    position: absolute;
-    width: 100%;
-  }
   .hamburger {
-    margin: 1.5% 5%;
+    margin: 15px 5% 1.5% 5%;
     position: fixed;
     right: 0;
     top: 0;
@@ -35,3 +27,4 @@ header {
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
   }
 }
+
