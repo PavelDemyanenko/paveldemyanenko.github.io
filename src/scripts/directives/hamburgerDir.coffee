@@ -4,7 +4,7 @@ angular.module("app.directives")
     ($window) ->
       return (
         scope: {}
-        restrict: "E"
+        restrict: "C"
         templateUrl: "scripts/directives/templates/hamburger-menu.html"
         link: ($scope, element, attrs) ->
           win = angular.element($window)
@@ -24,7 +24,7 @@ angular.module("app.directives")
           "$scope"
           ($scope) ->
             @toggle = ->
-              $scope.menu.find(".hamburgerMenu").toggleClass "open"
+              $scope.menu.toggleClass "open"
 
             @hide = ->
               $scope.hide()

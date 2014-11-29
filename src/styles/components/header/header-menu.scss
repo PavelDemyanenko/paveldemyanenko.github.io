@@ -1,15 +1,17 @@
+@import "hamburger";
+
 $numberOfMenuItems: 3;
 
 $menuItemHeight: 100 / $numberOfMenuItems;
 
-.hamburgerMenu {
-  .menu {
+.hamburger-menu {
+  .hamburger-list {
     opacity: 0;
     z-index: -1;
     @include transition(opacity 0);
   }
   &.open {
-    .menu {
+    .hamburger-list {
       position: fixed;
       overflow-y: hidden;
       z-index: 1;

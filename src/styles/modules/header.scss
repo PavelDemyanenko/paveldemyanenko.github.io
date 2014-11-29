@@ -1,4 +1,3 @@
-@import "../components/header/hamburger-menu";
 @import "../components/header/header-menu";
 
 header {
@@ -13,17 +12,6 @@ header {
   .logo {
     display: inline-block;
     margin: 0 auto;
-  }
-  .hamburger {
-    margin: 1.5% 5%;
-    position: fixed;
-    right: 0;
-    top: 0;
-    z-index: 10;
-    > span {
-      background: black;
-    }
-    &.open { }
   }
   .shadow-border {
     width: 100%;
