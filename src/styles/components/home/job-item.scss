@@ -71,7 +71,7 @@ figure {
     text-align: right;
     border-bottom: 5px solid;
   }
-  p {
+  .position {
     position: absolute;
     bottom: 30px;
     right: 35px;
@@ -80,13 +80,14 @@ figure {
     font-size: 68.5%;
     text-align: right;
   }
+  .description {
+    margin-top: 25px;
+    text-align: right;
+  }
   @each $job in $jobs {
     &.#{nth($job, 1)} {
       border-color: nth($job, 2);
       color: nth($job, 2);
-      h2, p {
-        color: nth($job, 2);
-      }
     }
   }
 }
