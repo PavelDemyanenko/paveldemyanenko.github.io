@@ -3,10 +3,14 @@ footer {
   @include outer-container;
   p {
     &.issues {
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       a {
         height: 20px;
       }
+    }
+    &.copyright {
+      margin-bottom: 20px;
+      text-align: center;
     }
   }
 }

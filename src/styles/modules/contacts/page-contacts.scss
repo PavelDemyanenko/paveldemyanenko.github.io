@@ -1,0 +1,20 @@
+.page-contacts {
+  h5 {
+    margin-bottom: 20px;
+  }
+  .links {
+    text-align: center;
+    a {
+      border: none;
+      margin: 4%;
+      .fa {
+        color: black;
+      }
+      &:hover {
+        .fa {
+          color: #333;
+        }
+      }
+    }
+  }
+}
