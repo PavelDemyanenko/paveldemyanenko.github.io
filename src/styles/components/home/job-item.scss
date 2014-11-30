@@ -114,10 +114,46 @@ figure {
     z-index: 1001;
     background-color: white;
     overflow-y: scroll;
-    .title, .short-description, .skills, .position {
+    cursor: default;
+    .title, .short-description, .skills, .position, .view-more {
       display: none;
     }
+    .close {
+      margin: 20px;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 6px;
+      height: 6em;
+      user-select: none;
+      @include transition(ease-in-out 0.2s);
+      width: 6em;
+      -webkit-tap-highlight-color: rgba(0,0,0,0);
+      border: none !important;
+      position: fixed;
+      right: 0;
+      top: 0;
+      z-index: 10;
+      span {
+        background: #333;
+        left: 0;
+        @include backface-visibility(hidden);
+        height: 0.8em;
+        position: absolute;
+        @include transition(ease-in-out 0.2s);
+        width: 100%;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        &:nth-child(1) {
+          top: 1em;
+          transform: rotate(45deg) translate(1.1em, 1.1em);
+        }
+        &:nth-child(2) {
+          top: 4.2em;
+          transform: rotate(-45deg) translate(1.1em , -1.1em);
+        }
+      }
+    }
     .full-description {
+      padding-right: 10px;
       opacity: 1;
       @include transition(opacity 800ms);
       padding-bottom: 30px;
@@ -125,8 +161,20 @@ figure {
       text-align: left;
       position: relative;
       left: 0;
+      h2 {
+        display: block;
+        text-align: left;
+      }
       p {
         line-height: 26px;
+        &.website {
+          b {
+            margin-right: 10px;
+          }
+          a {
+            z-index: 2001;
+          }
+        }
       }
     }
   }
