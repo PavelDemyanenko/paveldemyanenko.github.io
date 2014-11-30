@@ -1,12 +1,10 @@
 @import "home/page-home";
+@import "about/page-about";
 
 .page {
   font-family: $font_family;
   @include outer-container;
   flex: 1;
-  h1 {
-    font-weight: 200;
-  }
   p {
     color: #333;
   }

@@ -7,13 +7,14 @@ a[href] {
   text-decoration: none;
   border-bottom: 1px solid;
   transition: color 200ms, border-color 200ms;
-  
+  color: #2267a2;
+
   &:hover {
     border-color: transparent;
   }
 
   &:active {
-    
+
     transition: color 200ms, border-color 200ms;
   }
 }
