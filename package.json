@@ -1,10 +1,11 @@
 {
-  "name": "Pavel Demyanenko personal website",
+  "name": "PavelDemyanenko",
+  "author": "Pavel Demyanenko",
   "version": "0.1.0",
   "description": "This project is used as code example for people who are interested in my skills.",
   "homepage": "http://www.demyanenko.io",
-  "bugs": "",
-  "keywords": ["front end"],
+  "bugs": "conscious.suddens@gmail.com",
+  "keywords": ["front end", "angulr.js", "mean stack"],
   "contributors": [
     "Pavel Demyanenko <conscious.suddens@gmail.com>"
   ],
