@@ -6,13 +6,19 @@
     text-align: center;
     a {
       border: none;
-      margin: 4%;
+      margin: 4% 3% 4% 3%;
       .fa {
         color: black;
       }
       &:hover {
         .fa {
           color: #333;
+          &.fa-twitter {
+            color: #55acee;
+          }
+          &.fa-tumblr-square {
+            color: #36465d;
+          }
         }
       }
     }
