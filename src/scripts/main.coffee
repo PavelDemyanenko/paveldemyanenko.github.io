@@ -2,6 +2,7 @@ site = angular.module "app", [
   "angular-loading-bar",
   "ngAnimate",
   "ngRoute",
+  "ngCountdownRibbon",
   require("./services").name,
   require("./directives").name,
   require("./pages/home").name,
