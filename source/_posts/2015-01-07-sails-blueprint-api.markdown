@@ -30,11 +30,11 @@ Blueprints удобно использовать при прототипиров
 
 ### Blueprint Actions
 
-Blueprint actions (не путать с blueprint action routes) — это общие действия, направленные на работу с любым контроллером, который имеет модель с таким же именем. Можно думать о них, как о поведение по умолчанию для приложения. Например, если существует модель User.js и соответствующий контроллер UserController.js, то действия create, update, find, destroy, populate, add, remove будут доступны без необходимости писать их.
+Blueprint actions (не путать с blueprint action routes) — это общие методы, направленные на работу с любым контроллером, который имеет модель с таким же именем. Можно думать о них, как о поведение по умолчанию для приложения. Например, если существует модель User.js и соответствующий контроллер UserController.js, то методы create, update, find, destroy, populate, add, remove будут доступны без необходимости писать их.
 
-По умолчанию RESTful routes и shortcut routes привязаны к соответствующим общим действиям. Тем не менее, любое такое действие может быть переопределенно для конкретного контроллера путем создания этого действия в файле контроллера (FooController.find). Кроме того можно переопределить дейсвтия во всем приложение создать кастомное действие (api/blueprints/create.js).
+По умолчанию RESTful routes и shortcut routes привязаны к соответствующим общим методам. Тем не менее, любой такой метод может быть переопределен для конкретного контроллера путем создания этого метода в файле контроллера (FooController.find). Кроме того можно переопределить методы во всем приложение, создав кастомные методы (api/blueprints/create.js).
 
-Текущая версия Sails поддерживает следующие действия:
+Текущая версия Sails поддерживает следующие методы:
 
 1. [find](http://sailsjs.org/#/documentation/reference/blueprint-api/Find.html)
 2. [findOne](http://sailsjs.org/#/documentation/reference/blueprint-api/FindOne.html)
@@ -48,8 +48,6 @@ Blueprint actions (не путать с blueprint action routes) — это об
 Расмотренные методы blueprint API один в один, как методы выше.
 
 ### Переопределение blueprints
-
-To override blueprints in Sails v0.10, you create an api/blueprints folder and add your blueprint files (e.g. find.js, create.js, etc.) within. You can take a look at the code for the default actions in the Sails blueprints hook for a head start.
 
 Чтобы переопределить blueprints в Sails v0.10 можно создать папку api/blueprints и добавить туда свои файлы (например, find.js, create.js и т.п). Можно посмотреть на код по умолчанию для начала.
 
