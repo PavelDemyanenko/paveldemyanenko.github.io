@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
+  <title><![CDATA[Pavel Demyanenko]]></title>
   <link href="http://paveldemyanenko.github.io/atom.xml" rel="self"/>
   <link href="http://paveldemyanenko.github.io/"/>
-  <updated>2015-01-07T21:53:55+03:00</updated>
+  <updated>2015-01-07T22:50:22+03:00</updated>
   <id>http://paveldemyanenko.github.io/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Pavel Demyanenko]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
