@@ -24,3 +24,12 @@ site.config ($routeProvider) ->
 
   return
 
+site.run ($rootScope) ->
+  $rootScope.$on "cfpLoadingBar:loading", (event, data) ->
+    console.log "loading", data
+    return
+  $rootScope.$on "cfpLoadingBar:completed", ->
+    console.log "loaded"
+    return
+
+  return
