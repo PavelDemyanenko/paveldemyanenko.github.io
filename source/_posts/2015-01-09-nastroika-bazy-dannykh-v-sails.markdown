@@ -6,7 +6,7 @@ comments: true
 categories:
 ---
 
-В Sails приложениях адапторы выступают посредниками между приложением и базой данных. Конкретнее, как плагины для [Waterline](https://github.com/balderdashy/waterline), [ORM](https://ru.wikipedia.org/wiki/ORM) для работы с базой данных. Настройка этих адапторов происходит в файле config/connections.js
+В Sails приложениях адаптеры выступают посредниками между приложением и базой данных. Конкретнее, как плагины для [Waterline](https://github.com/balderdashy/waterline), [ORM](https://ru.wikipedia.org/wiki/ORM) для работы с базой данных. Настройка этих адаптеров происходит в файле config/connections.js
 
 <!--more-->
 
