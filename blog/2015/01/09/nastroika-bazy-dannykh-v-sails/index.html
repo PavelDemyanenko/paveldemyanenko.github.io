@@ -9,8 +9,7 @@
   <meta name="author" content="Pavel Demyanenko">
 
   
-  <meta name="description" content="TODO: Написать процесс настройки БД.
-">
+  <meta name="description" content="В Sails приложениях адапторы выступают посредниками между приложением и базой данных. Конкретнее, как плагины для Waterline, ORM для работы с базой &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -97,7 +96,376 @@
   </header>
 
 
-<div class="entry-content"><p>TODO: Написать процесс настройки БД.</p>
+<div class="entry-content"><p>В Sails приложениях адапторы выступают посредниками между приложением и базой данных. Конкретнее, как плагины для <a href="https://github.com/balderdashy/waterline">Waterline</a>, <a href="https://ru.wikipedia.org/wiki/ORM">ORM</a> для работы с базой данных. Настройка этих адапторов происходит в файле config/connections.js</p>
+
+<!--more-->
+
+
+<p>Файл connection.js позволяет создавать разные глобальные настройки, которые можно подмиксовывоть в модели. Опция по умолчанаю будет автоматически подмиксовываться в модель, если в ней не указан адаптер. Важно помнить, что когда указывается адаптер в моделе, то перезаписывается настройка по умолчанию.</p>
+
+<p>Важно отметить, что если используются секретные данные (passwords, API keys), то их нужно назначать в файле config/local.js, он добвлен в .gitignore по умолчанию.</p>
+
+<figure class='code'><figcaption><span>local_example.js </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">connections</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">mysql</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">adapter</span><span class="o">:</span> <span class="s1">&#39;sails-mysql&#39;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nx">host</span><span class="o">:</span> <span class="s1">&#39;localhost&#39;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nx">user</span><span class="o">:</span> <span class="s1">&#39;tutorialuser&#39;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nx">password</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nx">database</span><span class="o">:</span> <span class="s1">&#39;tutorialdb&#39;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nx">charset</span><span class="o">:</span> <span class="s1">&#39;utf8&#39;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nx">models</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">connection</span><span class="o">:</span> <span class="s1">&#39;mysql&#39;</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nx">session</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">secret</span><span class="o">:</span> <span class="s1">&#39;&#39;</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nx">port</span><span class="o">:</span> <span class="mi">1337</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nx">environment</span><span class="o">:</span> <span class="s1">&#39;development&#39;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nx">log</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">level</span><span class="o">:</span> <span class="s1">&#39;info&#39;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">};</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>connection.js</span><a href='http://sailsjs.org/#/documentation/anatomy/myApp/config/connections.js.html'>Sails Documentation </a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="cm">/**</span>
+</span><span class='line'><span class="cm">* Connections</span>
+</span><span class='line'><span class="cm">* (sails.config.connections)</span>
+</span><span class='line'><span class="cm">*</span>
+</span><span class='line'><span class="cm">* `Connections` are like &quot;saved settings&quot; for your adapters.  What&#39;s the difference between</span>
+</span><span class='line'><span class="cm">* a connection and an adapter, you might ask?  An adapter (e.g. `sails-mysql`) is generic--</span>
+</span><span class='line'><span class="cm">* it needs some additional information to work (e.g. your database host, password, user, etc.)</span>
+</span><span class='line'><span class="cm">* A `connection` is that additional information.</span>
+</span><span class='line'><span class="cm">*</span>
+</span><span class='line'><span class="cm">* Each model must have a `connection` property (a string) which is references the name of one</span>
+</span><span class='line'><span class="cm">* of these connections.  If it doesn&#39;t, the default `connection` configured in `config/models.js`</span>
+</span><span class='line'><span class="cm">* will be applied.  Of course, a connection can (and usually is) shared by multiple models.</span>
+</span><span class='line'><span class="cm">* .</span>
+</span><span class='line'><span class="cm">* Note: If you&#39;re using version control, you should put your passwords/api keys</span>
+</span><span class='line'><span class="cm">* in `config/local.js`, environment variables, or use another strategy.</span>
+</span><span class='line'><span class="cm">* (this is to prevent you inadvertently sensitive credentials up to your repository.)</span>
+</span><span class='line'><span class="cm">*</span>
+</span><span class='line'><span class="cm">* For more information on configuration, check out:</span>
+</span><span class='line'><span class="cm">* http://links.sailsjs.org/docs/config/connections</span>
+</span><span class='line'><span class="cm">*/</span>
+</span><span class='line'><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="p">.</span><span class="nx">connections</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">// Local disk storage for DEVELOPMENT ONLY</span>
+</span><span class='line'>  <span class="c1">//</span>
+</span><span class='line'>  <span class="c1">// Installed by default.</span>
+</span><span class='line'>  <span class="c1">//</span>
+</span><span class='line'>  <span class="nx">localDiskDb</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">adapter</span><span class="o">:</span> <span class="s1">&#39;sails-disk&#39;</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">// MySQL is the world&#39;s most popular relational database.</span>
+</span><span class='line'>  <span class="c1">// http://en.wikipedia.org/wiki/MySQL</span>
+</span><span class='line'>  <span class="c1">//</span>
+</span><span class='line'>  <span class="c1">// Run:</span>
+</span><span class='line'>  <span class="c1">// npm install sails-mysql</span>
+</span><span class='line'>  <span class="c1">//</span>
+</span><span class='line'>  <span class="nx">someMysqlServer</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">adapter</span><span class="o">:</span> <span class="s1">&#39;sails-mysql&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">host</span><span class="o">:</span> <span class="s1">&#39;YOUR_MYSQL_SERVER_HOSTNAME_OR_IP_ADDRESS&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">user</span><span class="o">:</span> <span class="s1">&#39;YOUR_MYSQL_USER&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">password</span><span class="o">:</span> <span class="s1">&#39;YOUR_MYSQL_PASSWORD&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">database</span><span class="o">:</span> <span class="s1">&#39;YOUR_MYSQL_DB&#39;</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">// MongoDB is the leading NoSQL database.</span>
+</span><span class='line'>  <span class="c1">// http://en.wikipedia.org/wiki/MongoDB</span>
+</span><span class='line'>  <span class="c1">//</span>
+</span><span class='line'>  <span class="c1">// Run:</span>
+</span><span class='line'>  <span class="c1">// npm install sails-mongo</span>
+</span><span class='line'>  <span class="c1">//</span>
+</span><span class='line'>  <span class="nx">someMongodbServer</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">adapter</span><span class="o">:</span> <span class="s1">&#39;sails-mongo&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">host</span><span class="o">:</span> <span class="s1">&#39;localhost&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">port</span><span class="o">:</span> <span class="mi">27017</span><span class="p">,</span>
+</span><span class='line'>    <span class="c1">// user: &#39;username&#39;,</span>
+</span><span class='line'>    <span class="c1">// password: &#39;password&#39;,</span>
+</span><span class='line'>    <span class="c1">// database: &#39;your_mongo_db_name_here&#39;</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">// PostgreSQL is another officially supported relational database.</span>
+</span><span class='line'>  <span class="c1">// http://en.wikipedia.org/wiki/PostgreSQL</span>
+</span><span class='line'>  <span class="c1">//</span>
+</span><span class='line'>  <span class="c1">// Run:</span>
+</span><span class='line'>  <span class="c1">// npm install sails-postgresql</span>
+</span><span class='line'>  <span class="c1">//</span>
+</span><span class='line'>  <span class="nx">somePostgresqlServer</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">adapter</span><span class="o">:</span> <span class="s1">&#39;sails-postgresql&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">host</span><span class="o">:</span> <span class="s1">&#39;YOUR_POSTGRES_SERVER_HOSTNAME_OR_IP_ADDRESS&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">user</span><span class="o">:</span> <span class="s1">&#39;YOUR_POSTGRES_USER&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">password</span><span class="o">:</span> <span class="s1">&#39;YOUR_POSTGRES_PASSWORD&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">database</span><span class="o">:</span> <span class="s1">&#39;YOUR_POSTGRES_DB&#39;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">// More adapters:</span>
+</span><span class='line'>  <span class="c1">// https://github.com/balderdashy/sails</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">};</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>local.js</span><a href='http://sailsjs.org/#/documentation/anatomy/myApp/config/local.js.html'>Sails Documentation </a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="cm">/**</span>
+</span><span class='line'><span class="cm">* Local environment settings</span>
+</span><span class='line'><span class="cm">*</span>
+</span><span class='line'><span class="cm">* While you&#39;re DEVELOPING your app, this config file should include</span>
+</span><span class='line'><span class="cm">* any settings specifically for your development computer (db passwords, etc.)</span>
+</span><span class='line'><span class="cm">*</span>
+</span><span class='line'><span class="cm">* When you&#39;re ready to deploy your app in PRODUCTION, you can always use this file</span>
+</span><span class='line'><span class="cm">* for configuration options specific to the server where the app will be deployed.</span>
+</span><span class='line'><span class="cm">* But environment variables are usually the best way to handle production settings.</span>
+</span><span class='line'><span class="cm">*</span>
+</span><span class='line'><span class="cm">* PLEASE NOTE:</span>
+</span><span class='line'><span class="cm">*        This file is included in your .gitignore, so if you&#39;re using git</span>
+</span><span class='line'><span class="cm">*        as a version control solution for your Sails app, keep in mind that</span>
+</span><span class='line'><span class="cm">*        this file won&#39;t be committed to your repository!</span>
+</span><span class='line'><span class="cm">*</span>
+</span><span class='line'><span class="cm">*        Good news is, that means you can specify configuration for your local</span>
+</span><span class='line'><span class="cm">*        machine in this file without inadvertently committing personal information</span>
+</span><span class='line'><span class="cm">*        (like database passwords) to the repo.  Plus, this prevents other members</span>
+</span><span class='line'><span class="cm">*        of your team from commiting their local configuration changes on top of yours.</span>
+</span><span class='line'><span class="cm">*</span>
+</span><span class='line'><span class="cm">*</span>
+</span><span class='line'><span class="cm">* For more information, check out:</span>
+</span><span class='line'><span class="cm">* http://links.sailsjs.org/docs/config/local</span>
+</span><span class='line'><span class="cm">*/</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">// Your SSL certificate and key, if you want to be able to serve HTTP responses</span>
+</span><span class='line'>  <span class="c1">// over https:// and/or use websockets over the wss:// protocol</span>
+</span><span class='line'>  <span class="c1">// (recommended for HTTP, strongly encouraged for WebSockets)</span>
+</span><span class='line'>  <span class="c1">//</span>
+</span><span class='line'>  <span class="c1">// In this example, we&#39;ll assume you created a folder in your project, `config/ssl`</span>
+</span><span class='line'>  <span class="c1">// and dumped your certificate/key files there:</span>
+</span><span class='line'>  <span class="c1">// ssl: {</span>
+</span><span class='line'>  <span class="c1">//   ca: require(&#39;fs&#39;).readFileSync(__dirname + &#39;./ssl/my_apps_ssl_gd_bundle.crt&#39;),</span>
+</span><span class='line'>  <span class="c1">//   key: require(&#39;fs&#39;).readFileSync(__dirname + &#39;./ssl/my_apps_ssl.key&#39;),</span>
+</span><span class='line'>  <span class="c1">//   cert: require(&#39;fs&#39;).readFileSync(__dirname + &#39;./ssl/my_apps_ssl.crt&#39;)</span>
+</span><span class='line'>  <span class="c1">// },</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">// The `port` setting determines which TCP port your app will be deployed on</span>
+</span><span class='line'>  <span class="c1">// Ports are a transport-layer concept designed to allow many different</span>
+</span><span class='line'>  <span class="c1">// networking applications run at the same time on a single computer.</span>
+</span><span class='line'>  <span class="c1">// More about ports: http://en.wikipedia.org/wiki/Port_(computer_networking)</span>
+</span><span class='line'>  <span class="c1">//</span>
+</span><span class='line'>  <span class="c1">// By default, if it&#39;s set, Sails uses the `PORT` environment variable.</span>
+</span><span class='line'>  <span class="c1">// Otherwise it falls back to port 1337.</span>
+</span><span class='line'>  <span class="c1">//</span>
+</span><span class='line'>  <span class="c1">// In production, you&#39;ll probably want to change this setting</span>
+</span><span class='line'>  <span class="c1">// to 80 (http://) or 443 (https://) if you have an SSL certificate</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nx">port</span><span class="o">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PORT</span> <span class="o">||</span> <span class="mi">1337</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">// The runtime &quot;environment&quot; of your Sails app is either &#39;development&#39; or &#39;production&#39;.</span>
+</span><span class='line'>  <span class="c1">//</span>
+</span><span class='line'>  <span class="c1">// In development, your Sails app will go out of its way to help you</span>
+</span><span class='line'>  <span class="c1">// (for instance you will receive more descriptive error and debugging output)</span>
+</span><span class='line'>  <span class="c1">//</span>
+</span><span class='line'>  <span class="c1">// In production, Sails configures itself (and its dependencies) to optimize performance.</span>
+</span><span class='line'>  <span class="c1">// You should always put your app in production mode before you deploy it to a server-</span>
+</span><span class='line'>  <span class="c1">// This helps ensure that your Sails app remains stable, performant, and scalable.</span>
+</span><span class='line'>  <span class="c1">//</span>
+</span><span class='line'>  <span class="c1">// By default, Sails sets its environment using the `NODE_ENV` environment variable.</span>
+</span><span class='line'>  <span class="c1">// If NODE_ENV is not set, Sails will run in the &#39;development&#39; environment.</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nx">environment</span><span class="o">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NODE_ENV</span> <span class="o">||</span> <span class="s1">&#39;development&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">};</span>
+</span></code></pre></td></tr></table></div></figure>
+
 </div>
 
 
