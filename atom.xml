@@ -4,7 +4,7 @@
   <title><![CDATA[Pavel Demyanenko]]></title>
   <link href="http://paveldemyanenko.github.io/atom.xml" rel="self"/>
   <link href="http://paveldemyanenko.github.io/"/>
-  <updated>2015-01-10T14:54:49+03:00</updated>
+  <updated>2015-01-10T14:56:51+03:00</updated>
   <id>http://paveldemyanenko.github.io/</id>
   <author>
     <name><![CDATA[Pavel Demyanenko]]></name>
@@ -18,7 +18,7 @@
     <link href="http://paveldemyanenko.github.io/blog/2015/01/09/nastroika-bazy-dannykh-v-sails/"/>
     <updated>2015-01-09T17:50:10+03:00</updated>
     <id>http://paveldemyanenko.github.io/blog/2015/01/09/nastroika-bazy-dannykh-v-sails</id>
-    <content type="html"><![CDATA[<p>В Sails приложениях адапторы выступают посредниками между приложением и базой данных. Конкретнее, как плагины для <a href="https://github.com/balderdashy/waterline">Waterline</a>, <a href="https://ru.wikipedia.org/wiki/ORM">ORM</a> для работы с базой данных. Настройка этих адапторов происходит в файле config/connections.js</p>
+    <content type="html"><![CDATA[<p>В Sails приложениях адаптеры выступают посредниками между приложением и базой данных. Конкретнее, как плагины для <a href="https://github.com/balderdashy/waterline">Waterline</a>, <a href="https://ru.wikipedia.org/wiki/ORM">ORM</a> для работы с базой данных. Настройка этих адаптеров происходит в файле config/connections.js</p>
 
 <!--more-->
 
