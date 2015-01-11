@@ -4,7 +4,7 @@
   <title><![CDATA[Pavel Demyanenko]]></title>
   <link href="http://paveldemyanenko.github.io/atom.xml" rel="self"/>
   <link href="http://paveldemyanenko.github.io/"/>
-  <updated>2015-01-12T01:50:34+03:00</updated>
+  <updated>2015-01-12T01:51:45+03:00</updated>
   <id>http://paveldemyanenko.github.io/</id>
   <author>
     <name><![CDATA[Pavel Demyanenko]]></name>
@@ -18,7 +18,7 @@
     <link href="http://paveldemyanenko.github.io/blog/2015/01/11/prikviel-k-sails/"/>
     <updated>2015-01-11T20:50:46+03:00</updated>
     <id>http://paveldemyanenko.github.io/blog/2015/01/11/prikviel-k-sails</id>
-    <content type="html"><![CDATA[<p>Sails спроектирован так, чтобы быть похожим на фреймворк Ruby on Rails, но направленный на нужды современных приложений: data-driven API с масштабируемой архитектурой. Этот фреймворк особенно хорош для чатов, игр и вообщем для всего того, что работает в режиме реального времени. Но можно, конечно, использовать и для любых других типов веб приложений. Но, чтобы понять почему это всё может пригодиться надо понять как устроена экосистема node.js проектов.</p>
+    <content type="html"><![CDATA[<p>Sails спроектирован так, чтобы быть похожим на фреймворк Ruby on Rails, но направленный на нужды современных приложений: data-driven API с масштабируемой архитектурой. Этот фреймворк особенно хорош для чатов, игр и для всего того, что работает в режиме реального времени. Можно, конечно, использовать и для любых других типов веб приложений. Чтобы понять почему это всё может пригодиться надо понять как устроена экосистема node.js проектов.</p>
 
 <!--more-->
 
