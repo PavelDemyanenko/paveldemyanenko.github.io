@@ -4,7 +4,7 @@
   <title><![CDATA[Pavel Demyanenko]]></title>
   <link href="http://paveldemyanenko.github.io/atom.xml" rel="self"/>
   <link href="http://paveldemyanenko.github.io/"/>
-  <updated>2015-01-13T19:28:24+03:00</updated>
+  <updated>2015-01-13T19:29:28+03:00</updated>
   <id>http://paveldemyanenko.github.io/</id>
   <author>
     <name><![CDATA[Pavel Demyanenko]]></name>
@@ -117,7 +117,7 @@ server.example(router.route, routes);</code></pre></noscript></div>
 
 <p>Как видно уже получается пачка кода, а ничего почти не сделано.</p>
 
-<h3>Сколько времени уйдёт на создание мощного RESTful JSON API?</h3>
+<h3>Сколько времени уйдёт на создание мощного RESTful JSON API c Sails?</h3>
 
 <p>Ровно столько, сколько займут эти команды:</p>
 
