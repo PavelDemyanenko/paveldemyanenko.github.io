@@ -4,7 +4,7 @@
   <title><![CDATA[Pavel Demyanenko]]></title>
   <link href="http://paveldemyanenko.github.io/atom.xml" rel="self"/>
   <link href="http://paveldemyanenko.github.io/"/>
-  <updated>2015-01-12T01:54:22+03:00</updated>
+  <updated>2015-01-13T19:28:24+03:00</updated>
   <id>http://paveldemyanenko.github.io/</id>
   <author>
     <name><![CDATA[Pavel Demyanenko]]></name>
@@ -23,7 +23,109 @@
 <!--more-->
 
 
-<p>TODO: написать продолжение.</p>
+<p>Чтобы продемонстрировать примерную схему работы в Node.js создадим веб-сервер, роутер и контроллер.
+Важно понимать, что Node.js сам по себе не делает ничего «из коробки». Один из встроенных модулей позволяет без особых усилий создать простой HTTP-сервер.</p>
+
+<div><script src='https://gist.github.com/6ec3a5d280cea2b9299e.js?file=server.js'></script>
+<noscript><pre><code>var http = require(&quot;http&quot;);
+var url = require(&quot;url&quot;);
+
+function example(route, routes) {
+    function onRequest(req, res) {
+        var pathname = url.parse(req.url).pathname;
+        console.log(&quot;Request for &quot; + pathname + &quot; recieved.&quot;);
+        route(pathname, routes, res);
+    }
+
+    http.createServer(onRequest).listen(1337);
+    console.log(&quot;Server running at http://127.0.0.1:1337/&quot;);
+}
+
+exports.example = example;</code></pre></noscript></div>
+
+
+
+
+<div><script src='https://gist.github.com/e2cddca88214359c7933.js?file=router.js'></script>
+<noscript><pre><code>function route(pathname, routes, res) {
+    console.log(&quot;About to route a request for &quot; + pathname)
+    if (typeof routes[pathname] === &quot;function&quot;) {
+        routes[pathname](res);
+    } else {
+        console.log(&quot;No request found for &quot; + pathname)
+    }
+}
+
+exports.route = route;</code></pre></noscript></div>
+
+
+
+
+<div><script src='https://gist.github.com/b9aa2e1cfd6a152ab3a8.js?file=fooController.js'></script>
+<noscript><pre><code>function index(res) {
+    console.log(&quot;Action index was called&quot;);
+    res.writeHead(200, {
+        &quot;Content-type&quot;: &quot;text/plain&quot;
+    });
+
+
+    var users = {
+        user1: &quot;Jack White&quot;,
+        user2: &quot;Jack Black&quot;,
+        user3: &quot;Jack Grey&quot;
+    };
+
+    for (user in users) {
+        console.log(users[user]);
+        res.write(users[user] + &quot;\n&quot;);
+    }
+    res.end();
+}
+
+function show(res) {
+    console.log(&quot;Action show was called&quot;);
+    res.writeHead(200, {
+        &quot;Content-type&quot;: &quot;text/plain&quot;
+    });
+    var users = {
+        user1: &quot;Jack White&quot;,
+        user2: &quot;Jack Black&quot;,
+        user3: &quot;Jack Grey&quot;
+    };
+    res.write(users[user1]);
+    res.end();
+}
+
+exports.index = index;
+exports.show = show;</code></pre></noscript></div>
+
+
+<p>И index.js, в котором будут подключены нужные файлы и сконфигурированы файлы.</p>
+
+<div><script src='https://gist.github.com/76428d600a969e952b0f.js?file=index.js'></script>
+<noscript><pre><code>var server = require(&quot;./server&quot;);
+var router = require(&quot;./router&quot;);
+var fooController = require(&quot;./fooController&quot;);
+
+var routes = {};
+
+routes[&quot;/index&quot;] = fooController.index;
+routes[&quot;/show&quot;] = fooController.show;
+
+server.example(router.route, routes);</code></pre></noscript></div>
+
+
+<p>Как видно уже получается пачка кода, а ничего почти не сделано.</p>
+
+<h3>Сколько времени уйдёт на создание мощного RESTful JSON API?</h3>
+
+<p>Ровно столько, сколько займут эти команды:</p>
+
+<p><code>$ sails new jsonapi</code></p>
+
+<p><code>$ cd jsonapi</code></p>
+
+<p><code>$ sails generate user</code></p>
 ]]></content>
   </entry>
   
