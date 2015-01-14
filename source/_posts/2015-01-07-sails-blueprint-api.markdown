@@ -61,7 +61,7 @@ GET /myRoute': {blueprint: 'foo'}
 
 Также можно переопределить любые настройки из config/blueprints.js для каждого контроллера путем осоздания объекта \_config в контроллере и присвоение ему конфигурации с переопределением настроек.
 
-```
+{% codeblock _config.js lang:js %}
 module.exports = {
   _config: {
     actions: false,
@@ -69,4 +69,4 @@ module.exports = {
     rest: false
   }
 }
-```
+{% endcodeblock %}
