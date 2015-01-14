@@ -4,7 +4,7 @@
   <title><![CDATA[Pavel Demyanenko]]></title>
   <link href="http://paveldemyanenko.github.io/atom.xml" rel="self"/>
   <link href="http://paveldemyanenko.github.io/"/>
-  <updated>2015-01-14T18:25:17+03:00</updated>
+  <updated>2015-01-14T18:46:15+03:00</updated>
   <id>http://paveldemyanenko.github.io/</id>
   <author>
     <name><![CDATA[Pavel Demyanenko]]></name>
@@ -650,20 +650,22 @@
 
 <p>Также можно переопределить любые настройки из config/blueprints.js для каждого контроллера путем осоздания объекта _config в контроллере и присвоение ему конфигурации с переопределением настроек.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>_config.js </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>module.exports = {
-</span><span class='line'>  _config: {
-</span><span class='line'>    actions: false,
-</span><span class='line'>    shortcuts: false,
-</span><span class='line'>    rest: false
-</span><span class='line'>  }
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">_config</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">actions</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">shortcuts</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">rest</span><span class="o">:</span> <span class="kc">false</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 ]]></content>
   </entry>
