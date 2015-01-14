@@ -4,7 +4,7 @@
   <title><![CDATA[Pavel Demyanenko]]></title>
   <link href="http://paveldemyanenko.github.io/atom.xml" rel="self"/>
   <link href="http://paveldemyanenko.github.io/"/>
-  <updated>2015-01-13T19:29:28+03:00</updated>
+  <updated>2015-01-14T18:17:19+03:00</updated>
   <id>http://paveldemyanenko.github.io/</id>
   <author>
     <name><![CDATA[Pavel Demyanenko]]></name>
@@ -23,96 +23,175 @@
 <!--more-->
 
 
-<p>Чтобы продемонстрировать примерную схему работы в Node.js создадим веб-сервер, роутер и контроллер.
+<p>Примерная схему работы в Node.js всключает в себя создание веб-сервера, роутера и контроллеров.
 Важно понимать, что Node.js сам по себе не делает ничего «из коробки». Один из встроенных модулей позволяет без особых усилий создать простой HTTP-сервер.</p>
 
-<div><script src='https://gist.github.com/6ec3a5d280cea2b9299e.js?file=server.js'></script>
-<noscript><pre><code>var http = require(&quot;http&quot;);
-var url = require(&quot;url&quot;);
-
-function example(route, routes) {
-    function onRequest(req, res) {
-        var pathname = url.parse(req.url).pathname;
-        console.log(&quot;Request for &quot; + pathname + &quot; recieved.&quot;);
-        route(pathname, routes, res);
-    }
-
-    http.createServer(onRequest).listen(1337);
-    console.log(&quot;Server running at http://127.0.0.1:1337/&quot;);
-}
-
-exports.example = example;</code></pre></noscript></div>
-
-
-
-
-<div><script src='https://gist.github.com/e2cddca88214359c7933.js?file=router.js'></script>
-<noscript><pre><code>function route(pathname, routes, res) {
-    console.log(&quot;About to route a request for &quot; + pathname)
-    if (typeof routes[pathname] === &quot;function&quot;) {
-        routes[pathname](res);
-    } else {
-        console.log(&quot;No request found for &quot; + pathname)
-    }
-}
-
-exports.route = route;</code></pre></noscript></div>
-
-
-
-
-<div><script src='https://gist.github.com/b9aa2e1cfd6a152ab3a8.js?file=fooController.js'></script>
-<noscript><pre><code>function index(res) {
-    console.log(&quot;Action index was called&quot;);
-    res.writeHead(200, {
-        &quot;Content-type&quot;: &quot;text/plain&quot;
-    });
+<figure class='code'><figcaption><span>server.js </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;url&quot;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">function</span> <span class="nx">example</span><span class="p">(</span><span class="nx">route</span><span class="p">,</span> <span class="nx">routes</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="kd">function</span> <span class="nx">onRequest</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">pathname</span> <span class="o">=</span> <span class="nx">url</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">url</span><span class="p">).</span><span class="nx">pathname</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Request for &quot;</span> <span class="o">+</span> <span class="nx">pathname</span> <span class="o">+</span> <span class="s2">&quot; recieved.&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="nx">route</span><span class="p">(</span><span class="nx">pathname</span><span class="p">,</span> <span class="nx">routes</span><span class="p">,</span> <span class="nx">res</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">(</span><span class="nx">onRequest</span><span class="p">).</span><span class="nx">listen</span><span class="p">(</span><span class="mi">1337</span><span class="p">);</span>
+</span><span class='line'>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Server running at http://127.0.0.1:1337/&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">exports</span><span class="p">.</span><span class="nx">example</span> <span class="o">=</span> <span class="nx">example</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-    var users = {
-        user1: &quot;Jack White&quot;,
-        user2: &quot;Jack Black&quot;,
-        user3: &quot;Jack Grey&quot;
-    };
 
-    for (user in users) {
-        console.log(users[user]);
-        res.write(users[user] + &quot;\n&quot;);
-    }
-    res.end();
-}
 
-function show(res) {
-    console.log(&quot;Action show was called&quot;);
-    res.writeHead(200, {
-        &quot;Content-type&quot;: &quot;text/plain&quot;
-    });
-    var users = {
-        user1: &quot;Jack White&quot;,
-        user2: &quot;Jack Black&quot;,
-        user3: &quot;Jack Grey&quot;
-    };
-    res.write(users[user1]);
-    res.end();
-}
+<figure class='code'><figcaption><span>router.js </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">function</span> <span class="nx">route</span><span class="p">(</span><span class="nx">pathname</span><span class="p">,</span> <span class="nx">routes</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;About to route a request for &quot;</span> <span class="o">+</span> <span class="nx">pathname</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">routes</span><span class="p">[</span><span class="nx">pathname</span><span class="p">]</span> <span class="o">===</span> <span class="s2">&quot;function&quot;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">routes</span><span class="p">[</span><span class="nx">pathname</span><span class="p">](</span><span class="nx">res</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;No request found for &quot;</span> <span class="o">+</span> <span class="nx">pathname</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">exports</span><span class="p">.</span><span class="nx">route</span> <span class="o">=</span> <span class="nx">route</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
 
-exports.index = index;
-exports.show = show;</code></pre></noscript></div>
+
+
+
+<figure class='code'><figcaption><span>controller.js </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">function</span> <span class="nx">index</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Action index was called&quot;</span><span class="p">);</span>
+</span><span class='line'>  <span class="nx">res</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="p">{</span>
+</span><span class='line'>    <span class="s2">&quot;Content-type&quot;</span><span class="o">:</span> <span class="s2">&quot;text/plain&quot;</span>
+</span><span class='line'>  <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">user1</span><span class="o">:</span> <span class="s2">&quot;Jack White&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">user2</span><span class="o">:</span> <span class="s2">&quot;Jack Black&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">user3</span><span class="o">:</span> <span class="s2">&quot;Jack Grey&quot;</span>
+</span><span class='line'>  <span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">for</span> <span class="p">(</span><span class="nx">user</span> <span class="k">in</span> <span class="nx">users</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">users</span><span class="p">[</span><span class="nx">user</span><span class="p">]);</span>
+</span><span class='line'>    <span class="nx">res</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">users</span><span class="p">[</span><span class="nx">user</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;\n&quot;</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">function</span> <span class="nx">show</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Action show was called&quot;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nx">res</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="p">{</span>
+</span><span class='line'>    <span class="s2">&quot;Content-type&quot;</span><span class="o">:</span> <span class="s2">&quot;text/plain&quot;</span>
+</span><span class='line'>  <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">user1</span><span class="o">:</span> <span class="s2">&quot;Jack White&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">user2</span><span class="o">:</span> <span class="s2">&quot;Jack Black&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">user3</span><span class="o">:</span> <span class="s2">&quot;Jack Grey&quot;</span>
+</span><span class='line'>  <span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nx">res</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">users</span><span class="p">[</span><span class="nx">user1</span><span class="p">]);</span>
+</span><span class='line'>  <span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">exports</span><span class="p">.</span><span class="nx">index</span> <span class="o">=</span> <span class="nx">index</span><span class="p">;</span>
+</span><span class='line'><span class="nx">exports</span><span class="p">.</span><span class="nx">show</span> <span class="o">=</span> <span class="nx">show</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>И index.js, в котором будут подключены нужные файлы и сконфигурированы файлы.</p>
 
-<div><script src='https://gist.github.com/76428d600a969e952b0f.js?file=index.js'></script>
-<noscript><pre><code>var server = require(&quot;./server&quot;);
-var router = require(&quot;./router&quot;);
-var fooController = require(&quot;./fooController&quot;);
-
-var routes = {};
-
-routes[&quot;/index&quot;] = fooController.index;
-routes[&quot;/show&quot;] = fooController.show;
-
-server.example(router.route, routes);</code></pre></noscript></div>
+<figure class='code'><figcaption><span>index.js </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">server</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;./server&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">router</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;./router&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">fooController</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;./fooController&quot;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">var</span> <span class="nx">routes</span> <span class="o">=</span> <span class="p">{};</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">routes</span><span class="p">[</span><span class="s2">&quot;/index&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nx">fooController</span><span class="p">.</span><span class="nx">index</span><span class="p">;</span>
+</span><span class='line'><span class="nx">routes</span><span class="p">[</span><span class="s2">&quot;/show&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nx">fooController</span><span class="p">.</span><span class="nx">show</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">server</span><span class="p">.</span><span class="nx">example</span><span class="p">(</span><span class="nx">router</span><span class="p">.</span><span class="nx">route</span><span class="p">,</span> <span class="nx">routes</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>Как видно уже получается пачка кода, а ничего почти не сделано.</p>
