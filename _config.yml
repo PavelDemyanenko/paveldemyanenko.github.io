@@ -99,3 +99,7 @@ google_analytics_tracking_id: UA-58342253-1
 
 # Facebook Like
 facebook_like: false
+
+gems:
+  - octopress-solarized
+  - octopress-gist
