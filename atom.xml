@@ -4,7 +4,7 @@
   <title><![CDATA[Pavel Demyanenko]]></title>
   <link href="http://paveldemyanenko.github.io/atom.xml" rel="self"/>
   <link href="http://paveldemyanenko.github.io/"/>
-  <updated>2015-01-14T20:46:25+03:00</updated>
+  <updated>2015-01-22T19:18:50+03:00</updated>
   <id>http://paveldemyanenko.github.io/</id>
   <author>
     <name><![CDATA[Pavel Demyanenko]]></name>
@@ -12,6 +12,22 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Работа с шаблонами и ресурсами в Sails]]></title>
+    <link href="http://paveldemyanenko.github.io/blog/2015/01/22/rabota-s-shablonami-i-riesursami-v-sails/"/>
+    <updated>2015-01-22T19:02:08+03:00</updated>
+    <id>http://paveldemyanenko.github.io/blog/2015/01/22/rabota-s-shablonami-i-riesursami-v-sails</id>
+    <content type="html"><![CDATA[<p>Не устану повторять, что Sails очень похож на Rails и работает он соответственно по тому же принципу, то есть отвечает MVC.</p>
+
+<!--more-->
+
+
+<p>Так как Sails работает по принципу MVC.</p>
+
+<p>TODO: написать про работу с вьюхами и ассетами, а также про настройку лэйаута</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Приквел к Sails]]></title>
@@ -24,7 +40,7 @@
 
 
 <p>Примерная схема работы в Node.js включает в себя создание веб-сервера, роутера и контроллеров.
-Важно понимать, что Node.js сам по себе не делает ничего «из коробки». Один из встроенных модулей позволяет без особых усилий создать простой HTTP-сервер.</p>
+Важно понимать, что Node.js сам по себе не делает ничего «из коробки». Один из встроенных модулей позволяет без особых усилий создать простой HTTP-сервер. Другой, за работу с url и т.п. Ниже продемострирована такая схема создания проекта на Node.js.</p>
 
 <figure class='code'><figcaption><span>server.js </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -167,6 +183,16 @@
 </span><span class='line'><span class="nx">exports</span><span class="p">.</span><span class="nx">show</span> <span class="o">=</span> <span class="nx">show</span><span class="p">;</span>
 </span></code></pre></td></tr></table></div></figure>
 
+
+<p><figure class='code-highlight-figure'><figcaption class='code-highlight-caption'><span class='code-highlight-caption-title'>router.js</span><a class='code-highlight-caption-link' href='https://gist.github.com/e2cddca88214359c7933'>link</a></figcaption><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="kd">function</span> <span class="nx">route</span><span class="p">(</span><span class="nx">pathname</span><span class="p">,</span> <span class="nx">routes</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">&#x7b;</span>
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;About to route a request for &quot;</span> <span class="o">+</span> <span class="nx">pathname</span><span class="p">)</span>
+</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">routes</span><span class="p">[</span><span class="nx">pathname</span><span class="p">]</span> <span class="o">===</span> <span class="s2">&quot;function&quot;</span><span class="p">)</span> <span class="p">&#x7b;</span>
+</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>        <span class="nx">routes</span><span class="p">[</span><span class="nx">pathname</span><span class="p">](</span><span class="nx">res</span><span class="p">);</span>
+</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>    <span class="p">&#x7d;</span> <span class="k">else</span> <span class="p">&#x7b;</span>
+</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;No request found for &quot;</span> <span class="o">+</span> <span class="nx">pathname</span><span class="p">)</span>
+</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>    <span class="p">&#x7d;</span>
+</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="p">&#x7d;</span>
+</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nx">exports</span><span class="p">.</span><span class="nx">route</span> <span class="o">=</span> <span class="nx">route</span><span class="p">;</span></div></div></pre></div></figure></p>
 
 <p>И index.js, в котором будут подключены нужные файлы и сконфигурированы файлы.</p>
 
