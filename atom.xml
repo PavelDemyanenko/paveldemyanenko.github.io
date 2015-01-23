@@ -4,7 +4,7 @@
   <title><![CDATA[Pavel Demyanenko]]></title>
   <link href="http://paveldemyanenko.github.io/atom.xml" rel="self"/>
   <link href="http://paveldemyanenko.github.io/"/>
-  <updated>2015-01-22T19:18:50+03:00</updated>
+  <updated>2015-01-23T18:36:50+03:00</updated>
   <id>http://paveldemyanenko.github.io/</id>
   <author>
     <name><![CDATA[Pavel Demyanenko]]></name>
@@ -18,14 +18,103 @@
     <link href="http://paveldemyanenko.github.io/blog/2015/01/22/rabota-s-shablonami-i-riesursami-v-sails/"/>
     <updated>2015-01-22T19:02:08+03:00</updated>
     <id>http://paveldemyanenko.github.io/blog/2015/01/22/rabota-s-shablonami-i-riesursami-v-sails</id>
-    <content type="html"><![CDATA[<p>Не устану повторять, что Sails очень похож на Rails и работает он соответственно по тому же принципу, то есть отвечает MVC.</p>
+    <content type="html"><![CDATA[<p>Sails очень похож на Rails и работает он соответственно по тому же принципу, то есть отвечает MVC.</p>
 
 <!--more-->
 
 
-<p>Так как Sails работает по принципу MVC.</p>
+<p>По умолчанию в Sails шаблоны рендерятся на сервере. Этот подход характерезует V в MVC архитектуре.</p>
 
-<p>TODO: написать про работу с вьюхами и ассетами, а также про настройку лэйаута</p>
+<p>Так называемый серверный рендеринг представляет собой обработку сервером разметки, обычно, включающей в себя HTML, CSS и Javascript и применение даты в выбранном шаблонизаторе.  Все шаблонизаторы используют таги, которые окружают переменные и потом будут обработаны в данные. По умолчанию Sails использует шаблонизатор EJS.</p>
+
+<p><figure class='code-highlight-figure'><figcaption class='code-highlight-caption'><span class='code-highlight-caption-title'>ejs exmapl</span><a class='code-highlight-caption-link' href='https://gist.github.com/5736fc09d6a261797b7a'>link</a></figcaption><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>&lt;!DOCTYPE html>
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>&lt;html>
+</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>  &lt;head>
+</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>    &lt;title>&lt;%- title %>&lt;/title>
+</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>  &lt;/head>
+</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>  &hellip;</div></div></pre></div></figure></p>
+
+<p>Когда Sails обрабатывает шаблон, то будет предпринята попытка заменить все переменные соответствующим значением.</p>
+
+<h3>Как работает серверная обработка шаблонов</h3>
+
+<p>Когда клиент делает запрос на сервер, то роутер обрабатывает этот запрос и определяет куда его направить. Результирующий роут обычно направляет на controller/action, где будет выполнена какая-нибудь логика. Например, логикой может быть доступ к mongo базе данных, чтобы получить какие-нибудь данные, которые потом будут переданы в шаблон, который и будет отправлен клиенту и отображен браузером.</p>
+
+<p>Этот традиционный подход имеет по крайней мере два недостатка. Чтобы обновить данные на странице нужно постоянно полностью перегружать страницу. Второй недостаток в том, что API становится менее гибким так как привязан к шаблону.</p>
+
+<p>Более современный подход построения веб-приложений заключается в передаче управления UI на клиента, так же как и отделение API, чтобы он представлял только конечные точки и был независимым поставщиком данных. И доступ к конечным точкам мог бы получить UI холодильника, часов, смартфона и т.п.</p>
+
+<p>По умолчанию Sails генерирует три файла homepage.ejs, layout.ejs и роут к главной странице в config/route.js. Когда мы делаем запрос в браузере на localhost:1337, то Sails роутер смотрим на запрос и сопоставляет его с роутом в файле (route.js). Это задействует обработку шаблона layout.ejs с homepage.ejs, чтобы отобразить его в браузере. Layout.еjs здесь является надстройкой над homepage.ejs, который вставляется в шаблон на месте переменной body.</p>
+
+<p>Чтобы отключить эту функциональность в шаблонах надо изменить значение опции layout на false в файле /config/views.js.</p>
+
+<h3>Немного подробнее о лэйаутах в Sails.</h3>
+
+<p>Когда мы делаем приложения, которые имею много разных страницы, то может быть полезным выделить разметку, которая используется несколькими страницами в лэйаут. Это уменьшит количество кода в проекте и поможет избежать правок в одних и тех же местах.</p>
+
+<p>Sails идет с поддержкой лэйаутов, когда используется, встроенный по умолчанию, шаблонизатор ejs.</p>
+
+<p>Если вы захотите заменить ваш шаблонизатор на другой. То вам нужно будет использовать npm. Например, вы захотели переключиться на jade.</p>
+
+<p><code>run npm install jade --save-dev</code></p>
+
+<p>И потом просто меняете опцию engine на jade в config/views.js.
+Sails поддерживает много <a href="http://sailsjs.org/#/documentation/concepts/Views/ViewEngines.html">шаблонизаторов</a>. А также можно попробовать добавить <a href="https://github.com/tj/consolidate.js/blob/master/Readme.md#api">свои</a>.</p>
+
+<h3>Создание лэйаутов</h3>
+
+<p>Sails лэйауты - это специальные .ejs файлы в папке views, в которые вы можете обернуть другие ваши шаблоны. Лэйауты обычно содержат преамбулы ( напимер, e.g. !DOCTYPE html<html><head>&hellip;.</head><body>) и т.п. Лэйауты никогда не используются без шаблона, который вставляется в лэйаут.</p>
+
+<p>Настройка лэйаута может быть сконфигурирована или отключена в config/views.js, также может быть настроен специальный роут и действие, используя специальную переменную layout. По умолчанию все шаблоны в приложение будут использовать лэйаут, располагающийся в views/layout.js.</p>
+
+<p>Важно иметь в виде, что в Express 3 убрали поддержку лэйаутов и Sails делает обратную совместимость с Express 2. <a href="https://github.com/balderdashy/sails/issues/494">https://github.com/balderdashy/sails/issues/494</a></p>
+
+<h3>Обработка ресурсов в Sails</h3>
+
+<p>Допустим мы создаем страницу аутентификации в гибридном приложение и нам нужно подключить необходимый нам фреймворк, например, Angular.</p>
+
+<p>У Sails есть автоматический механизм для доступа к файлам, например, файлы Angular можно подключить поместив их в специальные теги:</p>
+
+<!--SCRIPTS-->
+
+
+<!--SCRIPTS END-->
+
+
+<p>Добавление файлов между этими тегами происходит с помощью специальной Grunt задачи, который будет находить файлы с соответствующими именами в assets/js. По умалчанию Sails будет вставлять сначала файлы из /assets/js/dependencies/, а затем из /assets/js.</p>
+
+<p>Порядок подключения файлов содержится в файле tasks/pipeline.js.</p>
+
+<p>Тоже самое характерно и для стилей.</p>
+
+<!--STYLES-->
+
+
+<!--STYLES END-->
+
+
+<p>В общем, файлопровод  в Sails - это набор задач Grunt.</p>
+
+<p>Вот небольшой список того, что Sails позволяет делать по умолчанию с файлами:</p>
+
+<ul>
+<li>Автоматическая компиляция LESS</li>
+<li>Автоматическая компиляция JST</li>
+<li>Автоматическая компиляция Coffescript</li>
+<li>Автоматическая вставка, минификация и конкатенация ресурсов</li>
+<li>Создание продакшен файлов</li>
+<li>Синхронизация и наблюдение за файлами</li>
+<li>Оптимизация файлов в продакшене</li>
+</ul>
+
+
+<p>Более <a href="https://github.com/irlnathan/s-grunt-docs/blob/master/overview.md">подробно про Grunt задачи в Sails</a></p>
+
+<p>Grunt можно легко отключить выставив в .sailsrc опции grunt  false. В этом файле содержатся важные глобальные настройки всего приложения. И выполняя какие-либо команды, в первую очередь будет проверяться именное этот файл.</p>
+
+<p>Если нужен, к примеру, Sass, то легко создать соответствующую Grunt задачу. Все задачи находятся в папке tasks/.</p>
+
+<p>А что еще лучше, так это то, что можно <a href="https://github.com/balderdashy/sails-generate-generator">создать отдельный генератор</a>, который будет позволять создать нужную структуру.</p>
 ]]></content>
   </entry>
   
