@@ -4,7 +4,7 @@
   <title><![CDATA[Pavel Demyanenko]]></title>
   <link href="http://paveldemyanenko.github.io/atom.xml" rel="self"/>
   <link href="http://paveldemyanenko.github.io/"/>
-  <updated>2015-01-29T19:48:00+03:00</updated>
+  <updated>2015-01-31T23:23:40+03:00</updated>
   <id>http://paveldemyanenko.github.io/</id>
   <author>
     <name><![CDATA[Pavel Demyanenko]]></name>
@@ -18,7 +18,12 @@
     <link href="http://paveldemyanenko.github.io/blog/2015/01/28/jwt-v-sails/"/>
     <updated>2015-01-28T23:12:42+03:00</updated>
     <id>http://paveldemyanenko.github.io/blog/2015/01/28/jwt-v-sails</id>
-    <content type="html"><![CDATA[<p>TODO: using JWT in Sails with Angularjs</p>
+    <content type="html"><![CDATA[<p>Сперва нужно установить необходимый <a href="https://www.npmjs.com/package/jsonwebtoken">модуль</a> в Sails проект.</p>
+
+<!--more-->
+
+
+<p>TODO: using JWT in Sails with Angularjs (maybe Rails example)</p>
 ]]></content>
   </entry>
   
