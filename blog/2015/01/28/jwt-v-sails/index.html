@@ -9,8 +9,8 @@
   <meta name="author" content="Pavel Demyanenko">
 
   
-  <meta name="description" content="Сперва нужно установить необходимый модуль в Sails проект. TODO: using JWT in Sails with Angularjs (maybe Rails example)
-">
+  <meta name="description" content="Рассмотрим пример архитектуры, когда мы имеем реализацию, где Sails выступает в
+качестве API бэкенда, а клиентская часть — это отдельное AngularJS &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -84,12 +84,52 @@
   </header>
 
 
-<div class="entry-content"><p>Сперва нужно установить необходимый <a href="https://www.npmjs.com/package/jsonwebtoken">модуль</a> в Sails проект.</p>
+<div class="entry-content"><p>Рассмотрим пример архитектуры, когда мы имеем реализацию, где Sails выступает в
+качестве API бэкенда, а клиентская часть — это отдельное AngularJS приложение, работающие
+с API Sails.</p>
 
 <!--more-->
 
 
-<p>TODO: using JWT in Sails with Angularjs (maybe Rails example)</p>
+<p>Для начала надо создать механизм обработки кодирования и декодирования:</p>
+
+<p><figure class='code-highlight-figure'><figcaption class='code-highlight-caption'><span class='code-highlight-caption-title'>jwt service</span><a class='code-highlight-caption-link' href='https://gist.github.com/e552a459aa881ffffaee'>link</a></figcaption><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>var jwt = require(&lsquo;jsonwebtoken&rsquo;);
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>module.exports.issueToken = function(payload) &#x7b;
+</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>  var token = jwt.sign(payload, process.env.TOKEN_SECRET || &ldquo;our biggest secret&rdquo;);
+</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>  return token;
+</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;;
+</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>module.exports.verifyToken = function(token, verified) &#x7b;
+</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>  return jwt.verify(token, process.env.TOKEN_SECRET || &ldquo;our biggest secret&rdquo;, &#x7b;&#x7d;, verified);
+</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;;</div></div></pre></div></figure></p>
+
+<p>Мы эскпортируем две функции, одну, которая будет назначать токен, а другая проверять. В этих функциях видим, как передаём полезную нагрузку и токен. Советуется держать секретные данные в переменной, что лучше, чем в простой строке. Также длинную случайную строку сложнее взломать.</p>
+
+<p>Как устроен контроллер:</p>
+
+<p>Метод аунтефикации:</p>
+
+<p><figure class='code-highlight-figure'><figcaption class='code-highlight-caption'><span class='code-highlight-caption-title'>AuthController.js</span><a class='code-highlight-caption-link' href='https://gist.github.com/605d88d09aa271038e75'>link</a></figcaption><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nx">authenticate</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">&#x7b;</span>
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="kd">var</span> <span class="nx">email</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">param</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">);</span>
+</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="kd">var</span> <span class="nx">password</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">param</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">);</span>
+</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">email</span> <span class="o">||</span> <span class="o">!</span><span class="nx">password</span><span class="p">)</span> <span class="p">&#x7b;</span>
+</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>    <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="mi">401</span><span class="p">,</span> <span class="p">&#x7b;</span><span class="nx">err</span><span class="o">:</span> <span class="s1">&#39;email and password required&#39;</span><span class="p">&#x7d;);</span>
+</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="p">&#x7d;</span>
+</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="nx">User</span><span class="p">.</span><span class="nx">findOneByEmail</span><span class="p">(</span><span class="nx">email</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">user</span><span class="p">)</span> <span class="p">&#x7b;</span>
+</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">user</span><span class="p">)</span> <span class="p">&#x7b;</span>
+</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>      <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="mi">401</span><span class="p">,</span> <span class="p">&#x7b;</span><span class="nx">err</span><span class="o">:</span> <span class="s1">&#39;invalid email or password&#39;</span><span class="p">&#x7d;);</span>
+</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'>    <span class="p">&#x7d;</span>
+</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='14' class='code-highlight-row numbered'><div class='code-highlight-line'>    <span class="nx">User</span><span class="p">.</span><span class="nx">validPassword</span><span class="p">(</span><span class="nx">password</span><span class="p">,</span> <span class="nx">user</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">valid</span><span class="p">)</span> <span class="p">&#x7b;</span>
+</div></div><div data-line='15' class='code-highlight-row numbered'><div class='code-highlight-line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">&#x7b;</span>
+</div></div><div data-line='16' class='code-highlight-row numbered'><div class='code-highlight-line'>        <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="mi">403</span><span class="p">,</span> <span class="p">&#x7b;</span><span class="nx">err</span><span class="o">:</span> <span class="s1">&#39;forbidden&#39;</span><span class="p">&#x7d;);</span>
+</div></div><div data-line='17' class='code-highlight-row numbered'><div class='code-highlight-line'>      <span class="p">&#x7d;</span>
+</div></div><div data-line='18' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='19' class='code-highlight-row numbered'><div class='code-highlight-line'>      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">valid</span><span class="p">)</span> <span class="p">&#x7b;</span>
+</div></div><div data-line='20' class='code-highlight-row numbered'><div class='code-highlight-line'>        <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="mi">401</span><span class="p">,</span> <span class="p">&#x7b;</span><span class="nx">err</span><span class="o">:</span> <span class="s1">&#39;invalid email or password&#39;</span><span class="p">&#x7d;);</span>
+</div></div><div data-line='21' class='code-highlight-row numbered'><div class='code-highlight-line'>      <span class="p">&#x7d;</span> <span class="k">else</span> <span class="p">&#x7b;</span>
+</div></div><div data-line='22' class='code-highlight-row numbered'><div class='code-highlight-line'>        <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(&#x7b;</span><span class="nx">user</span><span class="o">:</span> <span class="nx">user</span><span class="p">,</span> <span class="nx">token</span><span class="o">:</span> <span class="nx">sailsTokenAuth</span><span class="p">.</span><span class="nx">issueToken</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">)&#x7d;);</span>
+</div></div><div data-line='23' class='code-highlight-row numbered'><div class='code-highlight-line'>      <span class="p">&#x7d;</span>
+</div></div><div data-line='24' class='code-highlight-row numbered'><div class='code-highlight-line'>    <span class="p">&#x7d;);</span>
+</div></div><div data-line='25' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="p">&#x7d;)</span>
+</div></div><div data-line='26' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="p">&#x7d;</span></div></div></pre></div></figure></p>
 </div>
   <footer>
     <p class="meta">
