@@ -4,7 +4,7 @@
   <title><![CDATA[Pavel Demyanenko]]></title>
   <link href="http://paveldemyanenko.github.io/atom.xml" rel="self"/>
   <link href="http://paveldemyanenko.github.io/"/>
-  <updated>2015-02-06T21:08:43+03:00</updated>
+  <updated>2015-02-07T13:19:45+03:00</updated>
   <id>http://paveldemyanenko.github.io/</id>
   <author>
     <name><![CDATA[Pavel Demyanenko]]></name>
@@ -27,14 +27,14 @@
 
 <p>Для начала надо создать механизм обработки кодирования и декодирования:</p>
 
-<p><figure class='code-highlight-figure'><figcaption class='code-highlight-caption'><span class='code-highlight-caption-title'>jwt service</span><a class='code-highlight-caption-link' href='https://gist.github.com/e552a459aa881ffffaee'>link</a></figcaption><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>var jwt = require(&lsquo;jsonwebtoken&rsquo;);
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>module.exports.issueToken = function(payload) &#x7b;
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>  var token = jwt.sign(payload, process.env.TOKEN_SECRET || &ldquo;our biggest secret&rdquo;);
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>  return token;
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;;
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>module.exports.verifyToken = function(token, verified) &#x7b;
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>  return jwt.verify(token, process.env.TOKEN_SECRET || &ldquo;our biggest secret&rdquo;, &#x7b;&#x7d;, verified);
-</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;;</div></div></pre></div></figure></p>
+<p><figure class='code-highlight-figure'><figcaption class='code-highlight-caption'><span class='code-highlight-caption-title'>sailsTokenAuth.js</span><a class='code-highlight-caption-link' href='https://gist.github.com/bc7ea80491cfbf5439a8'>link</a></figcaption><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="kd">var</span> <span class="nx">jwt</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;jsonwebtoken&#39;</span><span class="p">);</span>
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="p">.</span><span class="nx">issueToken</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">payload</span><span class="p">)</span> <span class="p">&#x7b;</span>
+</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="kd">var</span> <span class="nx">token</span> <span class="o">=</span> <span class="nx">jwt</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">payload</span><span class="p">,</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">TOKEN_SECRET</span> <span class="o">||</span> <span class="s2">&quot;our biggest secret&quot;</span><span class="p">);</span>
+</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="k">return</span> <span class="nx">token</span><span class="p">;</span>
+</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="p">&#x7d;;</span>
+</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="p">.</span><span class="nx">verifyToken</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">token</span><span class="p">,</span> <span class="nx">verified</span><span class="p">)</span> <span class="p">&#x7b;</span>
+</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="k">return</span> <span class="nx">jwt</span><span class="p">.</span><span class="nx">verify</span><span class="p">(</span><span class="nx">token</span><span class="p">,</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">TOKEN_SECRET</span> <span class="o">||</span> <span class="s2">&quot;our biggest secret&quot;</span><span class="p">,</span> <span class="p">&#x7b;&#x7d;,</span> <span class="nx">verified</span><span class="p">);</span>
+</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="p">&#x7d;;</span></div></div></pre></div></figure></p>
 
 <p>Мы эскпортируем две функции, одну, которая будет назначать токен, а другая проверять. В этих функциях видим, как передаём полезную нагрузку и токен. Советуется держать секретные данные в переменной, что лучше, чем в простой строке. Также длинную случайную строку сложнее взломать.</p>
 
