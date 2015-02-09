@@ -33,3 +33,9 @@ site.run ($rootScope) ->
     return
 
   return
+
+site.config [
+  "cfpLoadingBarProvider"
+  (cfpLoadingBarProvider) ->
+    cfpLoadingBarProvider.latencyThreshold = 999999
+]

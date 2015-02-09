@@ -114,7 +114,7 @@ figure {
     margin: 0;
     z-index: 9999;
     background-color: white;
-    overflow-y: scroll;
+    overflow-y: auto;
     cursor: default;
     .title, .short-description, .skills, .position, .view-more {
       display: none;
