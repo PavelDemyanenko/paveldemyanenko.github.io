@@ -11,7 +11,6 @@ site = angular.module "app", [
 ]
 
 site.config ($routeProvider) ->
-
   $routeProvider.when("/",
     templateUrl: "pages/home.html"
     controller: "homeCtrl"
@@ -25,11 +24,9 @@ site.config ($routeProvider) ->
   return
 
 site.run ($rootScope) ->
-  $rootScope.$on "cfpLoadingBar:loading", (event, data) ->
-    console.log "loading", data
-    return
+  #TODO: https://github.com/chieffancypants/angular-loading-bar/issues/153
   $rootScope.$on "cfpLoadingBar:completed", ->
-    console.log "loaded"
+    $('body').fadeIn("fast")
     return
 
   return
@@ -37,5 +34,5 @@ site.run ($rootScope) ->
 site.config [
   "cfpLoadingBarProvider"
   (cfpLoadingBarProvider) ->
-    cfpLoadingBarProvider.latencyThreshold = 999999
+    cfpLoadingBarProvider.latencyThreshold = 10000
 ]

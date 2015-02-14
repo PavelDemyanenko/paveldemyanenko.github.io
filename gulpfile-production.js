@@ -17,8 +17,8 @@ var pho = require('pho-devstack')(gulp, {
     extensions: ['.coffee'],
     transforms: {
       coffeeify: true,
-      "browserify-ngmin": true,
-      uglifyify: true
+      "browserify-ngmin": false,
+      uglifyify: false
     }
   },
   livereload: {

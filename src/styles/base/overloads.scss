@@ -3,4 +3,7 @@
   height: 32px !important;
   line-height: 10px !important;
   text-transform: uppercase;
+  &:before, &:after {
+    height: 32px !important;
+  }
 }

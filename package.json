@@ -1,17 +1,17 @@
 {
   "name": "PavelDemyanenko",
   "author": "Pavel Demyanenko",
-  "version": "0.1.8",
-  "description": "This project is used as code example for people who are interested in my skills.",
-  "homepage": "http://www.demyanenko.io",
-  "bugs": "conscious.suddens@gmail.com",
-  "keywords": ["front end", "angulr.js", "mean stack"],
+  "version": "0.2.0",
+  "description": "This project is used as code example for people who are interested in my skills and my portfolio.",
+  "homepage": "http://www.paveldemyanenko.com",
+  "bugs": "mail@paveldemyanenko.com",
+  "keywords": ["front-end", "portfolio", "website"],
   "contributors": [
-    "Pavel Demyanenko <conscious.suddens@gmail.com>"
+    "Pavel Demyanenko <mail@paveldemyanenko.com>"
   ],
   "repository": {
     "type": "git",
-    "url": "http://github.com/PavelDemyanenko/demyanenko.io"
+    "url": "https://github.com/PavelDemyanenko/pho-devstack-website"
   },
   "dependencies": {},
   "devDependencies": {

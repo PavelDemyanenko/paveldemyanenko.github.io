@@ -1,17 +1,17 @@
 module.exports = {
-  analytics: 'UA-XXXXX-X',
+  analytics: 'UA-58342253-2',
 
-  description: 'This site is used as code example for people who are interested in my skills.',
+  description: 'Fullstack web developer with focus on frontend and performance.',
   author: 'Pavel Demyanenko',
-  keywords: 'front end, ui, ux, angularjs, nodejs, javascript, html, css, portfolio',
+  keywords: 'front-end, user interface, user experience, angular.js, node.js, ruby on rails, javascript, html, css, portfolio',
 
-  'og:url': 'http://www.paveldemyanenko.io',
+  'og:url': 'http://www.paveldemyanenko.com',
   'og:image': 'https://avatars2.githubusercontent.com/u/506399?v=3&s=460',
   'og:type': 'website',
-  'og:site_name': 'Pavel Demyanenk',
+  'og:site_name': 'Pavel Demyanenko personal website',
 
   'twitter:title': 'Pavel Demyanenko',
-  'twitter:url': 'http://www.paveldemyanenko.io',
+  'twitter:url': 'http://www.paveldemyanenko.com',
   'twitter:image': 'https://avatars2.githubusercontent.com/u/506399?v=3&s=460',
   'twitter:card': 'summary',
   'twitter:site': '@paveldemyanenko`',
