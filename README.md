@@ -1,3 +1,3 @@
 Personal website
 ================
-http://development.demyanenko.divshot.io/
+http://paveldemyanenko.com
