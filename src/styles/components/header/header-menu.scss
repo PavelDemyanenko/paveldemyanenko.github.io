@@ -5,6 +5,7 @@ $numberOfMenuItems: 4;
 $menuItemHeight: 100 / $numberOfMenuItems;
 
 .hamburger-menu {
+  line-height: 0;
   .hamburger-list {
     opacity: 0;
     z-index: -1;

@@ -25,14 +25,9 @@ site.config ($routeProvider) ->
 
 site.run ($rootScope) ->
   #TODO: https://github.com/chieffancypants/angular-loading-bar/issues/153
-  $rootScope.$on "cfpLoadingBar:completed", ->
-    $('body').fadeIn("fast")
+  $rootScope.$on "cfpLoadingBar:completed", (data, event)->
+    $('body').show()
     return
 
   return
 
-site.config [
-  "cfpLoadingBarProvider"
-  (cfpLoadingBarProvider) ->
-    cfpLoadingBarProvider.latencyThreshold = 10000
-]
