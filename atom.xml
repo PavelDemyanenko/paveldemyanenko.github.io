@@ -4,7 +4,7 @@
   <title><![CDATA[Pavel Demyanenko]]></title>
   <link href="http://paveldemyanenko.github.io/atom.xml" rel="self"/>
   <link href="http://paveldemyanenko.github.io/"/>
-  <updated>2015-02-07T13:19:45+03:00</updated>
+  <updated>2015-02-16T21:40:12+03:00</updated>
   <id>http://paveldemyanenko.github.io/</id>
   <author>
     <name><![CDATA[Pavel Demyanenko]]></name>
@@ -14,10 +14,13 @@
 
   
   <entry>
+    
     <title type="html"><![CDATA[JWT в Sails]]></title>
     <link href="http://paveldemyanenko.github.io/blog/2015/01/28/jwt-v-sails/"/>
+    
     <updated>2015-01-28T23:12:42+03:00</updated>
     <id>http://paveldemyanenko.github.io/blog/2015/01/28/jwt-v-sails</id>
+    
     <content type="html"><![CDATA[<p>Рассмотрим пример архитектуры, когда мы имеем реализацию, где Sails выступает в
 качестве API бэкенда, а клиентская часть — это отдельное AngularJS приложение, работающие
 с API Sails.</p>
@@ -65,13 +68,17 @@
 </div></div><div data-line='25' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="p">&#x7d;)</span>
 </div></div><div data-line='26' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="p">&#x7d;</span></div></div></pre></div></figure></p>
 ]]></content>
+    
   </entry>
   
   <entry>
+    
     <title type="html"><![CDATA[Ауентификация с JSON Web Tokens]]></title>
     <link href="http://paveldemyanenko.github.io/blog/2015/01/27/json-web-tokens/"/>
+    
     <updated>2015-01-27T20:50:32+03:00</updated>
     <id>http://paveldemyanenko.github.io/blog/2015/01/27/json-web-tokens</id>
+    
     <content type="html"><![CDATA[<p>Ауентификация c JWT не нуждается в сессиях, не имеет проблем с мобильными устройствами, не нуждается в CSRF и прекрасно работает с CORS. Но как это всё работает?</p>
 
 <!--more-->
@@ -105,13 +112,17 @@
 
 <p>В заключение, надо заметить, что с таким подходом лучше использовать SSL, так как токен будет передаваться каждый раз при запросе.</p>
 ]]></content>
+    
   </entry>
   
   <entry>
+    
     <title type="html"><![CDATA[Работа с шаблонами и ресурсами в Sails]]></title>
     <link href="http://paveldemyanenko.github.io/blog/2015/01/22/rabota-s-shablonami-i-riesursami-v-sails/"/>
+    
     <updated>2015-01-22T19:02:08+03:00</updated>
     <id>http://paveldemyanenko.github.io/blog/2015/01/22/rabota-s-shablonami-i-riesursami-v-sails</id>
+    
     <content type="html"><![CDATA[<p>Sails очень похож на Rails и работает он соответственно по тому же принципу, то есть отвечает MVC.</p>
 
 <!--more-->
@@ -210,13 +221,17 @@ Sails поддерживает много <a href="http://sailsjs.org/#/document
 
 <p>А что еще лучше, так это то, что можно <a href="https://github.com/balderdashy/sails-generate-generator">создать отдельный генератор</a>, который будет позволять создать нужную структуру.</p>
 ]]></content>
+    
   </entry>
   
   <entry>
+    
     <title type="html"><![CDATA[Приквел к Sails]]></title>
     <link href="http://paveldemyanenko.github.io/blog/2015/01/11/prikviel-k-sails/"/>
+    
     <updated>2015-01-11T20:50:46+03:00</updated>
     <id>http://paveldemyanenko.github.io/blog/2015/01/11/prikviel-k-sails</id>
+    
     <content type="html"><![CDATA[<p>Sails спроектирован так, чтобы быть похожим на фреймворк Ruby on Rails, но направленный на нужды современных приложений: data-driven API с масштабируемой архитектурой. Этот фреймворк особенно хорош для чатов, игр и для всего того, что работает в режиме реального времени. Можно, конечно, использовать и для любых других типов веб приложений. Чтобы понять почему это всё может пригодиться,  надо понять как устроена экосистема node.js проектов.</p>
 
 <!--more-->
@@ -415,13 +430,17 @@ Sails поддерживает много <a href="http://sailsjs.org/#/document
 
 <p><code>$ sails generate user</code></p>
 ]]></content>
+    
   </entry>
   
   <entry>
+    
     <title type="html"><![CDATA[Настройка базы данных в Sails]]></title>
     <link href="http://paveldemyanenko.github.io/blog/2015/01/09/nastroika-bazy-dannykh-v-sails/"/>
+    
     <updated>2015-01-09T17:50:10+03:00</updated>
     <id>http://paveldemyanenko.github.io/blog/2015/01/09/nastroika-bazy-dannykh-v-sails</id>
+    
     <content type="html"><![CDATA[<p>В Sails приложениях адаптеры выступают посредниками между приложением и базой данных. Конкретнее, как плагины для <a href="https://github.com/balderdashy/waterline">Waterline</a>, <a href="https://ru.wikipedia.org/wiki/ORM">ORM</a> для работы с базой данных. Настройка этих адаптеров происходит в файле config/connections.js</p>
 
 <!--more-->
@@ -793,13 +812,17 @@ Sails поддерживает много <a href="http://sailsjs.org/#/document
 </span></code></pre></td></tr></table></div></figure>
 
 ]]></content>
+    
   </entry>
   
   <entry>
+    
     <title type="html"><![CDATA[Sails Blueprint API]]></title>
     <link href="http://paveldemyanenko.github.io/blog/2015/01/07/sails-blueprint-api/"/>
+    
     <updated>2015-01-07T22:52:43+03:00</updated>
     <id>http://paveldemyanenko.github.io/blog/2015/01/07/sails-blueprint-api</id>
+    
     <content type="html"><![CDATA[<p>Blueprint API состоит из blueprint routes и blueprint actions, которые создают логику для <a href="https://ru.wikipedia.org/wiki/REST">RESTful JSON API</a> каждый раз, когда создается модель и контроллер.</p>
 
 <p>Например, если создать модель пользователя и соответствующий контроллер в проекте, то blueprint api позволит сразу создать пользователя /user/create?name=vanya и просмотреть массив созданных пользователей /user, не написав для этого ни одной строчки кода.</p>
@@ -877,6 +900,749 @@ Sails поддерживает много <a href="http://sailsjs.org/#/document
 </span></code></pre></td></tr></table></div></figure>
 
 ]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
+    <link href="http://paveldemyanenko.github.io/blog/2014/12/23/of-lorems-and-ipsii-9/"/>
+    
+    <updated>2014-12-23T03:04:23+03:00</updated>
+    <id>http://paveldemyanenko.github.io/blog/2014/12/23/of-lorems-and-ipsii-9</id>
+    
+    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+<p>Some code:</p>
+
+<pre><code class="js">var hello = function (name) {
+  console.log("Hello, " + name + '.');
+}
+hello('World');   // prints 'Hello, World.' to stdout
+</code></pre>
+
+<!-- More -->
+
+
+<h2>Some more code</h2>
+
+<pre><code class="ruby">def test
+  @answer = 6*9
+  if @answer != 42  # this should never happen
+    raise "Oh no, not again."
+  else
+    print "Don't panic."
+end
+</code></pre>
+
+<h2>this is a sample header</h2>
+
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
+    <link href="http://paveldemyanenko.github.io/blog/2014/12/23/of-lorems-and-ipsii-8/"/>
+    
+    <updated>2014-12-23T03:04:23+03:00</updated>
+    <id>http://paveldemyanenko.github.io/blog/2014/12/23/of-lorems-and-ipsii-8</id>
+    
+    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+<p>Some code:</p>
+
+<pre><code class="js">var hello = function (name) {
+  console.log("Hello, " + name + '.');
+}
+hello('World');   // prints 'Hello, World.' to stdout
+</code></pre>
+
+<!-- More -->
+
+
+<h2>Some more code</h2>
+
+<pre><code class="ruby">def test
+  @answer = 6*9
+  if @answer != 42  # this should never happen
+    raise "Oh no, not again."
+  else
+    print "Don't panic."
+end
+</code></pre>
+
+<h2>this is a sample header</h2>
+
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
+    <link href="http://paveldemyanenko.github.io/blog/2014/12/23/of-lorems-and-ipsii-7/"/>
+    
+    <updated>2014-12-23T03:04:23+03:00</updated>
+    <id>http://paveldemyanenko.github.io/blog/2014/12/23/of-lorems-and-ipsii-7</id>
+    
+    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+<p>Some code:</p>
+
+<pre><code class="js">var hello = function (name) {
+  console.log("Hello, " + name + '.');
+}
+hello('World');   // prints 'Hello, World.' to stdout
+</code></pre>
+
+<!-- More -->
+
+
+<h2>Some more code</h2>
+
+<pre><code class="ruby">def test
+  @answer = 6*9
+  if @answer != 42  # this should never happen
+    raise "Oh no, not again."
+  else
+    print "Don't panic."
+end
+</code></pre>
+
+<h2>this is a sample header</h2>
+
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
+    <link href="http://paveldemyanenko.github.io/blog/2014/12/23/of-lorems-and-ipsii-6/"/>
+    
+    <updated>2014-12-23T03:04:23+03:00</updated>
+    <id>http://paveldemyanenko.github.io/blog/2014/12/23/of-lorems-and-ipsii-6</id>
+    
+    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+<p>Some code:</p>
+
+<pre><code class="js">var hello = function (name) {
+  console.log("Hello, " + name + '.');
+}
+hello('World');   // prints 'Hello, World.' to stdout
+</code></pre>
+
+<!-- More -->
+
+
+<h2>Some more code</h2>
+
+<pre><code class="ruby">def test
+  @answer = 6*9
+  if @answer != 42  # this should never happen
+    raise "Oh no, not again."
+  else
+    print "Don't panic."
+end
+</code></pre>
+
+<h2>this is a sample header</h2>
+
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
+    <link href="http://paveldemyanenko.github.io/blog/2014/12/23/of-lorems-and-ipsii-5/"/>
+    
+    <updated>2014-12-23T03:04:23+03:00</updated>
+    <id>http://paveldemyanenko.github.io/blog/2014/12/23/of-lorems-and-ipsii-5</id>
+    
+    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+<p>Some code:</p>
+
+<pre><code class="js">var hello = function (name) {
+  console.log("Hello, " + name + '.');
+}
+hello('World');   // prints 'Hello, World.' to stdout
+</code></pre>
+
+<!-- More -->
+
+
+<h2>Some more code</h2>
+
+<pre><code class="ruby">def test
+  @answer = 6*9
+  if @answer != 42  # this should never happen
+    raise "Oh no, not again."
+  else
+    print "Don't panic."
+end
+</code></pre>
+
+<h2>this is a sample header</h2>
+
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
+    <link href="http://paveldemyanenko.github.io/blog/2014/12/23/of-lorems-and-ipsii-4/"/>
+    
+    <updated>2014-12-23T03:04:23+03:00</updated>
+    <id>http://paveldemyanenko.github.io/blog/2014/12/23/of-lorems-and-ipsii-4</id>
+    
+    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+<p>Some code:</p>
+
+<pre><code class="js">var hello = function (name) {
+  console.log("Hello, " + name + '.');
+}
+hello('World');   // prints 'Hello, World.' to stdout
+</code></pre>
+
+<!-- More -->
+
+
+<h2>Some more code</h2>
+
+<pre><code class="ruby">def test
+  @answer = 6*9
+  if @answer != 42  # this should never happen
+    raise "Oh no, not again."
+  else
+    print "Don't panic."
+end
+</code></pre>
+
+<h2>this is a sample header</h2>
+
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
+    <link href="http://paveldemyanenko.github.io/blog/2014/12/23/of-lorems-and-ipsii-3/"/>
+    
+    <updated>2014-12-23T03:04:23+03:00</updated>
+    <id>http://paveldemyanenko.github.io/blog/2014/12/23/of-lorems-and-ipsii-3</id>
+    
+    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+<p>Some code:</p>
+
+<pre><code class="js">var hello = function (name) {
+  console.log("Hello, " + name + '.');
+}
+hello('World');   // prints 'Hello, World.' to stdout
+</code></pre>
+
+<!-- More -->
+
+
+<h2>Some more code</h2>
+
+<pre><code class="ruby">def test
+  @answer = 6*9
+  if @answer != 42  # this should never happen
+    raise "Oh no, not again."
+  else
+    print "Don't panic."
+end
+</code></pre>
+
+<h2>this is a sample header</h2>
+
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
+    <link href="http://paveldemyanenko.github.io/blog/2014/12/23/of-lorems-and-ipsii-2/"/>
+    
+    <updated>2014-12-23T03:04:23+03:00</updated>
+    <id>http://paveldemyanenko.github.io/blog/2014/12/23/of-lorems-and-ipsii-2</id>
+    
+    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+<p>Some code:</p>
+
+<pre><code class="js">var hello = function (name) {
+  console.log("Hello, " + name + '.');
+}
+hello('World');   // prints 'Hello, World.' to stdout
+</code></pre>
+
+<!-- More -->
+
+
+<h2>Some more code</h2>
+
+<pre><code class="ruby">def test
+  @answer = 6*9
+  if @answer != 42  # this should never happen
+    raise "Oh no, not again."
+  else
+    print "Don't panic."
+end
+</code></pre>
+
+<h2>this is a sample header</h2>
+
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
+    <link href="http://paveldemyanenko.github.io/blog/2014/12/23/of-lorems-and-ipsii-16/"/>
+    
+    <updated>2014-12-23T03:04:23+03:00</updated>
+    <id>http://paveldemyanenko.github.io/blog/2014/12/23/of-lorems-and-ipsii-16</id>
+    
+    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+<p>Some code:</p>
+
+<pre><code class="js">var hello = function (name) {
+  console.log("Hello, " + name + '.');
+}
+hello('World');   // prints 'Hello, World.' to stdout
+</code></pre>
+
+<!-- More -->
+
+
+<h2>Some more code</h2>
+
+<pre><code class="ruby">def test
+  @answer = 6*9
+  if @answer != 42  # this should never happen
+    raise "Oh no, not again."
+  else
+    print "Don't panic."
+end
+</code></pre>
+
+<h2>this is a sample header</h2>
+
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
+    <link href="http://paveldemyanenko.github.io/blog/2014/12/23/of-lorems-and-ipsii-15/"/>
+    
+    <updated>2014-12-23T03:04:23+03:00</updated>
+    <id>http://paveldemyanenko.github.io/blog/2014/12/23/of-lorems-and-ipsii-15</id>
+    
+    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+<p>Some code:</p>
+
+<pre><code class="js">var hello = function (name) {
+  console.log("Hello, " + name + '.');
+}
+hello('World');   // prints 'Hello, World.' to stdout
+</code></pre>
+
+<!-- More -->
+
+
+<h2>Some more code</h2>
+
+<pre><code class="ruby">def test
+  @answer = 6*9
+  if @answer != 42  # this should never happen
+    raise "Oh no, not again."
+  else
+    print "Don't panic."
+end
+</code></pre>
+
+<h2>this is a sample header</h2>
+
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
+    <link href="http://paveldemyanenko.github.io/blog/2014/12/23/of-lorems-and-ipsii-14/"/>
+    
+    <updated>2014-12-23T03:04:23+03:00</updated>
+    <id>http://paveldemyanenko.github.io/blog/2014/12/23/of-lorems-and-ipsii-14</id>
+    
+    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+<p>Some code:</p>
+
+<pre><code class="js">var hello = function (name) {
+  console.log("Hello, " + name + '.');
+}
+hello('World');   // prints 'Hello, World.' to stdout
+</code></pre>
+
+<!-- More -->
+
+
+<h2>Some more code</h2>
+
+<pre><code class="ruby">def test
+  @answer = 6*9
+  if @answer != 42  # this should never happen
+    raise "Oh no, not again."
+  else
+    print "Don't panic."
+end
+</code></pre>
+
+<h2>this is a sample header</h2>
+
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
+    <link href="http://paveldemyanenko.github.io/blog/2014/12/23/of-lorems-and-ipsii-13/"/>
+    
+    <updated>2014-12-23T03:04:23+03:00</updated>
+    <id>http://paveldemyanenko.github.io/blog/2014/12/23/of-lorems-and-ipsii-13</id>
+    
+    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+<p>Some code:</p>
+
+<pre><code class="js">var hello = function (name) {
+  console.log("Hello, " + name + '.');
+}
+hello('World');   // prints 'Hello, World.' to stdout
+</code></pre>
+
+<!-- More -->
+
+
+<h2>Some more code</h2>
+
+<pre><code class="ruby">def test
+  @answer = 6*9
+  if @answer != 42  # this should never happen
+    raise "Oh no, not again."
+  else
+    print "Don't panic."
+end
+</code></pre>
+
+<h2>this is a sample header</h2>
+
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
+    <link href="http://paveldemyanenko.github.io/blog/2014/12/23/of-lorems-and-ipsii-12/"/>
+    
+    <updated>2014-12-23T03:04:23+03:00</updated>
+    <id>http://paveldemyanenko.github.io/blog/2014/12/23/of-lorems-and-ipsii-12</id>
+    
+    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+<p>Some code:</p>
+
+<pre><code class="js">var hello = function (name) {
+  console.log("Hello, " + name + '.');
+}
+hello('World');   // prints 'Hello, World.' to stdout
+</code></pre>
+
+<!-- More -->
+
+
+<h2>Some more code</h2>
+
+<pre><code class="ruby">def test
+  @answer = 6*9
+  if @answer != 42  # this should never happen
+    raise "Oh no, not again."
+  else
+    print "Don't panic."
+end
+</code></pre>
+
+<h2>this is a sample header</h2>
+
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+    <title type="html"><![CDATA[Of lorems and ipsii]]></title>
+    <link href="http://paveldemyanenko.github.io/blog/2014/12/23/of-lorems-and-ipsii-11/"/>
+    
+    <updated>2014-12-23T03:04:23+03:00</updated>
+    <id>http://paveldemyanenko.github.io/blog/2014/12/23/of-lorems-and-ipsii-11</id>
+    
+    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+<p>Some code:</p>
+
+<pre><code class="js">var hello = function (name) {
+  console.log("Hello, " + name + '.');
+}
+hello('World');   // prints 'Hello, World.' to stdout
+</code></pre>
+
+<!-- More -->
+
+
+<h2>Some more code</h2>
+
+<pre><code class="ruby">def test
+  @answer = 6*9
+  if @answer != 42  # this should never happen
+    raise "Oh no, not again."
+  else
+    print "Don't panic."
+end
+</code></pre>
+
+<h2>this is a sample header</h2>
+
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+    
   </entry>
   
 </feed>
