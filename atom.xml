@@ -4,7 +4,7 @@
   <title><![CDATA[Pavel Demyanenko]]></title>
   <link href="http://paveldemyanenko.github.io/atom.xml" rel="self"/>
   <link href="http://paveldemyanenko.github.io/"/>
-  <updated>2015-02-16T21:45:03+03:00</updated>
+  <updated>2015-02-17T21:10:09+03:00</updated>
   <id>http://paveldemyanenko.github.io/</id>
   <author>
     <name><![CDATA[Pavel Demyanenko]]></name>
@@ -14,13 +14,10 @@
 
   
   <entry>
-    
     <title type="html"><![CDATA[JWT в Sails]]></title>
     <link href="http://paveldemyanenko.github.io/blog/2015/01/28/jwt-v-sails/"/>
-    
     <updated>2015-01-28T23:12:42+03:00</updated>
     <id>http://paveldemyanenko.github.io/blog/2015/01/28/jwt-v-sails</id>
-    
     <content type="html"><![CDATA[<p>Рассмотрим пример архитектуры, когда мы имеем реализацию, где Sails выступает в
 качестве API бэкенда, а клиентская часть — это отдельное AngularJS приложение, работающие
 с API Sails.</p>
@@ -67,18 +64,85 @@
 </div></div><div data-line='24' class='code-highlight-row numbered'><div class='code-highlight-line'>    <span class="p">&#x7d;);</span>
 </div></div><div data-line='25' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="p">&#x7d;)</span>
 </div></div><div data-line='26' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="p">&#x7d;</span></div></div></pre></div></figure></p>
+
+<p>Мы проверяем, что данные переданы, потом ищем пользователя и вызываем функцию валидации, чтобы проверить комбинацию пользователь/пароль. И если наши данные верны, мы назначаем токен, используя user.id как полезную нагрузку и также передаем полного пользователя в json.</p>
+
+<p>И так: мы передаем наши данные > проверяем их и если они впорядке > мы получаем нашего пользователя и токен в json.</p>
+
+<p>Метод регистрации:</p>
+
+<p><figure class='code-highlight-figure'><figcaption class='code-highlight-caption'><span class='code-highlight-caption-title'>AuthController.js</span><a class='code-highlight-caption-link' href='https://gist.github.com/d35ade0b70c1eb130d3e'>link</a></figcaption><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nx">register</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">&#x7b;</span>
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="c1">//TODO: Do some validation on the input</span>
+</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">password</span> <span class="o">!==</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">confirmPassword</span><span class="p">)</span> <span class="p">&#x7b;</span>
+</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>    <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="mi">401</span><span class="p">,</span> <span class="p">&#x7b;</span><span class="nx">err</span><span class="o">:</span> <span class="s1">&#39;Password doesn&amp;#39;t match&#39;</span><span class="p">&#x7d;);</span>
+</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="p">&#x7d;</span>
+</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="nx">User</span><span class="p">.</span><span class="nx">create</span><span class="p">(&#x7b;</span><span class="nx">email</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">email</span><span class="p">,</span> <span class="nx">password</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">password</span><span class="p">&#x7d;).</span><span class="nx">exec</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">user</span><span class="p">)</span> <span class="p">&#x7b;</span>
+</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>    <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">&#x7b;</span>
+</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>      <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">status</span><span class="p">,</span> <span class="p">&#x7b;</span><span class="nx">err</span><span class="o">:</span> <span class="nx">err</span><span class="p">&#x7d;);</span>
+</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>      <span class="k">return</span><span class="p">;</span>
+</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>    <span class="p">&#x7d;</span>
+</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'>    <span class="k">if</span> <span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">&#x7b;</span>
+</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'>      <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(&#x7b;</span><span class="nx">user</span><span class="o">:</span> <span class="nx">user</span><span class="p">,</span> <span class="nx">token</span><span class="o">:</span> <span class="nx">sailsTokenAuth</span><span class="p">.</span><span class="nx">issueToken</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">)&#x7d;);</span>
+</div></div><div data-line='14' class='code-highlight-row numbered'><div class='code-highlight-line'>    <span class="p">&#x7d;</span>
+</div></div><div data-line='15' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="p">&#x7d;);</span>
+</div></div><div data-line='16' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="p">&#x7d;</span></div></div></pre></div></figure></p>
+
+<p>Мы просто создаем пользователя с новыми данными и если они валидны, то назначаем токен. Это делается для того, чтобы пользователю не пришлось заново логиниться после регистрации.</p>
+
+<p>Как обрабатываются входящие запросы? У Sails есть концепт, который называется политиками, которые используются как посредники, которые запускаются перед контроллерами. Там можно проверять токен:</p>
+
+<p><figure class='code-highlight-figure'><figcaption class='code-highlight-caption'><span class='code-highlight-caption-title'>tokenAuth.js</span><a class='code-highlight-caption-link' href='https://gist.github.com/ce7b7a062dbc1fea61b4'>link</a></figcaption><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">&#x7b;</span>
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="kd">var</span> <span class="nx">token</span><span class="p">;</span>
+</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">headers</span> <span class="o">&amp;&amp;</span> <span class="nx">req</span><span class="p">.</span><span class="nx">headers</span><span class="p">.</span><span class="nx">authorization</span><span class="p">)</span> <span class="p">&#x7b;</span>
+</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>    <span class="kd">var</span> <span class="nx">parts</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">headers</span><span class="p">.</span><span class="nx">authorization</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">);</span>
+</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>    <span class="k">if</span> <span class="p">(</span><span class="nx">parts</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="p">&#x7b;</span>
+</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>      <span class="kd">var</span> <span class="nx">scheme</span> <span class="o">=</span> <span class="nx">parts</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>        <span class="nx">credentials</span> <span class="o">=</span> <span class="nx">parts</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>      <span class="k">if</span> <span class="p">(</span><span class="sr">/^Bearer$/i</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">scheme</span><span class="p">))</span> <span class="p">&#x7b;</span>
+</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>        <span class="nx">token</span> <span class="o">=</span> <span class="nx">credentials</span><span class="p">;</span>
+</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'>      <span class="p">&#x7d;</span>
+</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'>    <span class="p">&#x7d;</span> <span class="k">else</span> <span class="p">&#x7b;</span>
+</div></div><div data-line='14' class='code-highlight-row numbered'><div class='code-highlight-line'>      <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="mi">401</span><span class="p">,</span> <span class="p">&#x7b;</span><span class="nx">err</span><span class="o">:</span> <span class="s1">&#39;Format is Authorization: Bearer [token]&#39;</span><span class="p">&#x7d;);</span>
+</div></div><div data-line='15' class='code-highlight-row numbered'><div class='code-highlight-line'>    <span class="p">&#x7d;</span>
+</div></div><div data-line='16' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="p">&#x7d;</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">param</span><span class="p">(</span><span class="s1">&#39;token&#39;</span><span class="p">))</span> <span class="p">&#x7b;</span>
+</div></div><div data-line='17' class='code-highlight-row numbered'><div class='code-highlight-line'>    <span class="nx">token</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">param</span><span class="p">(</span><span class="s1">&#39;token&#39;</span><span class="p">);</span>
+</div></div><div data-line='18' class='code-highlight-row numbered'><div class='code-highlight-line'>    <span class="c1">// We delete the token from param to not mess with blueprints</span>
+</div></div><div data-line='19' class='code-highlight-row numbered'><div class='code-highlight-line'>    <span class="k">delete</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">token</span><span class="p">;</span>
+</div></div><div data-line='20' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="p">&#x7d;</span> <span class="k">else</span> <span class="p">&#x7b;</span>
+</div></div><div data-line='21' class='code-highlight-row numbered'><div class='code-highlight-line'>    <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="mi">401</span><span class="p">,</span> <span class="p">&#x7b;</span><span class="nx">err</span><span class="o">:</span> <span class="s1">&#39;No Authorization header was found&#39;</span><span class="p">&#x7d;);</span>
+</div></div><div data-line='22' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="p">&#x7d;</span>
+</div></div><div data-line='23' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='24' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="nx">sailsTokenAuth</span><span class="p">.</span><span class="nx">verifyToken</span><span class="p">(</span><span class="nx">token</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">token</span><span class="p">)</span> <span class="p">&#x7b;</span>
+</div></div><div data-line='25' class='code-highlight-row numbered'><div class='code-highlight-line'>    <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="mi">401</span><span class="p">,</span> <span class="p">&#x7b;</span><span class="nx">err</span><span class="o">:</span> <span class="s1">&#39;The token is not valid&#39;</span><span class="p">&#x7d;);</span>
+</div></div><div data-line='26' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='27' class='code-highlight-row numbered'><div class='code-highlight-line'>    <span class="nx">req</span><span class="p">.</span><span class="nx">token</span> <span class="o">=</span> <span class="nx">token</span><span class="p">;</span>
+</div></div><div data-line='28' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='29' class='code-highlight-row numbered'><div class='code-highlight-line'>    <span class="nx">next</span><span class="p">();</span>
+</div></div><div data-line='30' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="p">&#x7d;);</span>
+</div></div><div data-line='31' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="p">&#x7d;;</span></div></div></pre></div></figure></p>
+
+<p>В начале мы проверяем, есть ли у нас токен в хедере информация об авторизацие и потом записываем его. Так же проверяется не был ли передан параметром в адресной строке.</p>
+
+<p>Когда у нас наконец есть токен, мы просто проверяем его, извлекаем полезную нагрузку и присваиваем её req.token, чтобы потом можно было получить доступ из контроллера. Если токена нет, то передаем ошибку.</p>
+
+<p>Теперь, когда мы имеем токен мы можем выполнить, например:</p>
+
+<p><figure class='code-highlight-figure'><figcaption class='code-highlight-caption'><span class='code-highlight-caption-title'>index.js</span><a class='code-highlight-caption-link' href='https://gist.github.com/cbe16948bfd344c69470'>link</a></figcaption><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nx">index</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">&#x7b;</span>
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="nx">User</span><span class="p">.</span><span class="nx">findOne</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">token</span><span class="p">).</span><span class="nx">exec</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">message</span><span class="p">)</span> <span class="p">&#x7b;</span>
+</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    <span class="c1">// Work with the user here</span>
+</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="p">&#x7d;);</span>
+</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="p">&#x7d;;</span></div></div></pre></div></figure></p>
+
+<p>С тех пор, как наш такен — это user id, то мы может использовать его везде, где необходимо.</p>
+
+<p>Больше нечего добавить. Нужно просто добавить библиотеку, которая будет шифровать/расшифровывать токен и назначать его при регистрации или логине и проверять его существование перед каждым запросом.</p>
+
+<p>Original source: <a href="http://angular-tips.com/blog/2014/05/json-web-tokens-examples/">http://angular-tips.com/blog/2014/05/json-web-tokens-examples/</a></p>
 ]]></content>
-    
   </entry>
   
   <entry>
-    
     <title type="html"><![CDATA[Ауентификация с JSON Web Tokens]]></title>
     <link href="http://paveldemyanenko.github.io/blog/2015/01/27/json-web-tokens/"/>
-    
     <updated>2015-01-27T20:50:32+03:00</updated>
     <id>http://paveldemyanenko.github.io/blog/2015/01/27/json-web-tokens</id>
-    
     <content type="html"><![CDATA[<p>Ауентификация c JWT не нуждается в сессиях, не имеет проблем с мобильными устройствами, не нуждается в CSRF и прекрасно работает с CORS. Но как это всё работает?</p>
 
 <!--more-->
@@ -111,18 +175,16 @@
 <p>Есть еще кое-что важное для продвинутых пользователей. Например, можно задать время истечения действительности токена. Это полезно, например, для того, чтобы заставить пользователя перелогиниться черех X дней.</p>
 
 <p>В заключение, надо заметить, что с таким подходом лучше использовать SSL, так как токен будет передаваться каждый раз при запросе.</p>
+
+<p>Original source: <a href="http://angular-tips.com/blog/2014/05/json-web-tokens-introduction/">http://angular-tips.com/blog/2014/05/json-web-tokens-introduction/</a></p>
 ]]></content>
-    
   </entry>
   
   <entry>
-    
     <title type="html"><![CDATA[Работа с шаблонами и ресурсами в Sails]]></title>
     <link href="http://paveldemyanenko.github.io/blog/2015/01/22/rabota-s-shablonami-i-riesursami-v-sails/"/>
-    
     <updated>2015-01-22T19:02:08+03:00</updated>
     <id>http://paveldemyanenko.github.io/blog/2015/01/22/rabota-s-shablonami-i-riesursami-v-sails</id>
-    
     <content type="html"><![CDATA[<p>Sails очень похож на Rails и работает он соответственно по тому же принципу, то есть отвечает MVC.</p>
 
 <!--more-->
@@ -220,18 +282,16 @@ Sails поддерживает много <a href="http://sailsjs.org/#/document
 <p>Если нужен, к примеру, Sass, то легко создать соответствующую Grunt задачу. Все задачи находятся в папке tasks/.</p>
 
 <p>А что еще лучше, так это то, что можно <a href="https://github.com/balderdashy/sails-generate-generator">создать отдельный генератор</a>, который будет позволять создать нужную структуру.</p>
+
+<p>Написано на основе SailsCasts.</p>
 ]]></content>
-    
   </entry>
   
   <entry>
-    
     <title type="html"><![CDATA[Приквел к Sails]]></title>
     <link href="http://paveldemyanenko.github.io/blog/2015/01/11/prikviel-k-sails/"/>
-    
     <updated>2015-01-11T20:50:46+03:00</updated>
     <id>http://paveldemyanenko.github.io/blog/2015/01/11/prikviel-k-sails</id>
-    
     <content type="html"><![CDATA[<p>Sails спроектирован так, чтобы быть похожим на фреймворк Ruby on Rails, но направленный на нужды современных приложений: data-driven API с масштабируемой архитектурой. Этот фреймворк особенно хорош для чатов, игр и для всего того, что работает в режиме реального времени. Можно, конечно, использовать и для любых других типов веб приложений. Чтобы понять почему это всё может пригодиться,  надо понять как устроена экосистема node.js проектов.</p>
 
 <!--more-->
@@ -429,18 +489,16 @@ Sails поддерживает много <a href="http://sailsjs.org/#/document
 <p><code>$ cd jsonapi</code></p>
 
 <p><code>$ sails generate user</code></p>
+
+<p>Написано на основе SailsCasts.</p>
 ]]></content>
-    
   </entry>
   
   <entry>
-    
     <title type="html"><![CDATA[Настройка базы данных в Sails]]></title>
     <link href="http://paveldemyanenko.github.io/blog/2015/01/09/nastroika-bazy-dannykh-v-sails/"/>
-    
     <updated>2015-01-09T17:50:10+03:00</updated>
     <id>http://paveldemyanenko.github.io/blog/2015/01/09/nastroika-bazy-dannykh-v-sails</id>
-    
     <content type="html"><![CDATA[<p>В Sails приложениях адаптеры выступают посредниками между приложением и базой данных. Конкретнее, как плагины для <a href="https://github.com/balderdashy/waterline">Waterline</a>, <a href="https://ru.wikipedia.org/wiki/ORM">ORM</a> для работы с базой данных. Настройка этих адаптеров происходит в файле config/connections.js</p>
 
 <!--more-->
@@ -812,17 +870,13 @@ Sails поддерживает много <a href="http://sailsjs.org/#/document
 </span></code></pre></td></tr></table></div></figure>
 
 ]]></content>
-    
   </entry>
   
   <entry>
-    
     <title type="html"><![CDATA[Sails Blueprint API]]></title>
     <link href="http://paveldemyanenko.github.io/blog/2015/01/07/sails-blueprint-api/"/>
-    
     <updated>2015-01-07T22:52:43+03:00</updated>
     <id>http://paveldemyanenko.github.io/blog/2015/01/07/sails-blueprint-api</id>
-    
     <content type="html"><![CDATA[<p>Blueprint API состоит из blueprint routes и blueprint actions, которые создают логику для <a href="https://ru.wikipedia.org/wiki/REST">RESTful JSON API</a> каждый раз, когда создается модель и контроллер.</p>
 
 <p>Например, если создать модель пользователя и соответствующий контроллер в проекте, то blueprint api позволит сразу создать пользователя /user/create?name=vanya и просмотреть массив созданных пользователей /user, не написав для этого ни одной строчки кода.</p>
@@ -900,7 +954,6 @@ Sails поддерживает много <a href="http://sailsjs.org/#/document
 </span></code></pre></td></tr></table></div></figure>
 
 ]]></content>
-    
   </entry>
   
 </feed>
