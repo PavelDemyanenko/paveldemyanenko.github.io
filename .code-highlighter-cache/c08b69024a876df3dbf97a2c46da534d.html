@@ -1,0 +1,8 @@
+<figure class='code-highlight-figure'><figcaption class='code-highlight-caption'><span class='code-highlight-caption-title'>jwt service</span><a class='code-highlight-caption-link' href='https://gist.github.com/e552a459aa881ffffaee'>link</a></figcaption><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>var jwt = require('jsonwebtoken');
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>module.exports.issueToken = function(payload) &#x7b;
+</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>  var token = jwt.sign(payload, process.env.TOKEN_SECRET || "our biggest secret");
+</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>  return token;
+</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;;
+</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>module.exports.verifyToken = function(token, verified) &#x7b;
+</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>  return jwt.verify(token, process.env.TOKEN_SECRET || "our biggest secret", &#x7b;&#x7d;, verified);
+</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;;</div></div></pre></div></figure>

@@ -114,3 +114,5 @@ server.example(router.route, routes);
 `$ cd jsonapi`
 
 `$ sails generate user`
+
+Написано на основе SailsCasts.

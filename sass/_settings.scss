@@ -1,0 +1,52 @@
+// grid properties
+$row-width: 1050px;
+$column-gutter: 40px;
+$total-columns: 12;
+
+// image display properties
+$boxed_images: true; /* true if you want your images to have polaroid effects, false if not */
+
+// colors
+$body-bg: #fff !default; /* white by default */
+$primary-color: #008CBA !default; /* blue by default */
+$secondary-color: #e7e7e7 !default; /* light gray by default */
+$topbar-bg: #111; /* almost black by default */
+$bottom-border-color: #cccccc;
+// font colors
+$body-font-color: #222 !default; /* almost black by default */
+$header-font-color: #af4976; /* magenta by default */
+$subheader-font-color: scale-color($body-font-color, $lightness: 35%); /* medium gray by default */ 
+$icon-color: #777777; /* medium-light gray by default */
+
+// body font properties
+$body-font-family: 'Roboto', sans-serif !default;
+$body-font-size: 18px !default;
+$body-font-weight: 300 !default;
+$body-font-style: normal !default;
+$body-line-height: 1.45 !default;
+$body-paragraph-margin: 25px !default;
+$bold-font-weight: 500 !default;
+$button-font-tny: 14px;
+
+// header font properties
+$small-font-size: 50%;
+$header-font-family: 'Ubuntu', sans-serif;
+$header-font-weight: 500;
+
+// link properties
+$anchor-text-decoration: none;
+$anchor-font-color: $primary-color;
+$anchor-font-color-hover: scale-color($primary-color, $lightness: -25%);
+
+// navigation bar
+$topbar-height: 45px;
+$topbar-link-font-size: 14px;
+$topbar-link-letterspacing: 0.5px;
+$topbar-link-hover-lightness: -10%;
+$topbar-link-bg-hover: #2c2c2c;
+$topbar-link-color: #fff;
+
+// border radii
+$global-radius: 3px !default;
+$global-rounded: 1000px !default;
+
