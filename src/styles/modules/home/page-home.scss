@@ -1,13 +1,23 @@
-@import "../../components/home/job-item";
-
 .page-home {
-  .jobs{
-    overflow: hidden;
-    position: relative;
-    margin: 0 auto;
-    padding: 1em 0 4em;
-    max-width: 1000px;
-    list-style: none;
+  margin-bottom: 50px;
+  h5 {
     text-align: center;
+    margin: 0 0 25px 0;
+  }
+  .ego {
+    .skills {
+      margin-bottom: 35px;
+      text-align: center;
+      a {
+        border: none;
+        margin: 2%;
+      }
+      img {
+        max-width: 150px;
+        max-height: 200px;
+        margin: 2%;
+        vertical-align: middle;
+      }
+    }
   }
 }

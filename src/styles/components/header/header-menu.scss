@@ -46,10 +46,10 @@ $menuItemHeight: 100 / $numberOfMenuItems;
           color: white;
           @include transition-property(background-color, color);
           @include transition-duration(150ms);
-          &.home {
+          &.about {
             background: rgba(#21c6ce, 0.9);
           }
-          &.about {
+          &.home {
             background: rgba(#ffd934, 0.9);
           }
           &.contact {
