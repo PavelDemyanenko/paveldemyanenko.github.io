@@ -7,3 +7,13 @@
     height: 32px !important;
   }
 }
+
+._720kb-tooltip {
+  display: none;
+  opacity: 0;
+}
+._720kb-tooltip._720kb-tooltip-open {
+  display: block;
+  opacity: 1;
+}
+
