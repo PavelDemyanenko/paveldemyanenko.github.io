@@ -28,33 +28,21 @@
   <!-- substitute:css -->
 </head>
 <body ng-controller="homeCtrl" style="display: none;">
-  <header data-0="height:145px; line-height: 145px;"
-          data-128="height: 64px; line-height: 64px;">
+  <header>
 
-    <div
-         data-0="font-size: 34px;"
-         data-128="font-size: 14px;"
-         data-name="xell"
-         class="logo">PAVEL DEMYANENKO</div>
-
-    <div class="shadow-border"
-         data-0="opacity: 0; height:165px;"
-         data-128="opacity: 1; height: 64px;">
-    </div>
+    <div data-name="xell" class="logo">PAVEL DEMYANENKO</div>
 
     <div class="hamburger-menu"></div>
 
   </header>
-  <div class="page {{ pageClass }}"
-       data-0="padding-top: 142px;"
-       data-192="padding-top: 140px;" ng-view skrollr-tag>
+  <div class="page {{ pageClass }}" ng-view >
   </div>
   <footer>
       <p class="issues"><i class="fa fa-github-alt"></i>
         Found a bug?
         <a href="https://github.com/PavelDemyanenko/site/issues">Create an Issue on Github</a>
       </p>
-    <p class="copyright">Copyright &copy; 2015 Pavel Demyanenko</p>
+    <p class="copyright">&copy; 2015 Pavel Demyanenko</p>
   </footer>
   <!-- substitute:livereload -->
   <script type="text/javascript" src="bower_components/jQuery/dist/jquery.min.js"></script>
