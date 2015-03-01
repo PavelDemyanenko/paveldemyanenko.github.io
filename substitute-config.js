@@ -8,7 +8,7 @@ module.exports = {
   'og:url': 'http://www.paveldemyanenko.com',
   'og:image': 'https://octodex.github.com/images/front-end-conftocat.png',
   'og:type': 'website',
-  'og:site_name': 'Pavel Demyanenko personal website',
+  'og:site_name': 'Pavel Demyanenko\'s personal website',
 
   'twitter:title': 'Pavel Demyanenko',
   'twitter:url': 'http://www.paveldemyanenko.com',

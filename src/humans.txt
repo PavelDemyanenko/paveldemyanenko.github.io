@@ -1,14 +1,9 @@
-# humanstxt.org/
-# The humans responsible & technology colophon
+Developer: Pavel Demyanenko
+Contact: mail[at]paveldemyanenko.com
+Twitter: @paveldemyanenko
+From: Voronezh, Russia
+Last update: 2015/03/02
+Language: English
+Doctype: HTML5
+Favicon: by Hand-Drawn Goods (http://handdrawngoods.com/), license: Creative Commons (Attribution 3.0 Unported)
 
-# TEAM
-
-    <name> -- <role> -- <twitter>
-
-# THANKS
-
-    <name>
-
-# TECHNOLOGY COLOPHON
-
-    Pho devstack
