@@ -9,11 +9,9 @@ angular.module("app.directives")
         link: ($scope, element, attrs) ->
           win = angular.element($window)
           menu = $scope.menu = element
-          list = $scope.list = menu.find(".hamburger-list")
-          toggle = $scope.toggle = menu.find(".hamburger-toggle")
+          toggle = $scope.toggle = menu.children(".hamburger-toggle")
           $scope.hide = ->
             menu.removeClass "open"
-            list.removeClass "open"
             toggle.removeClass "open"
             return
 

@@ -1,5 +1,5 @@
 angular.module("app.directives")
-  .directive("uxIcon", [ ->
+  .directive("uxIcon", [ "$interval", ($interval)->
       return (
         scope: {}
         restrict: "C"
@@ -22,13 +22,13 @@ angular.module("app.directives")
             return "radial-gradient(at top left, " + c1.rgb + ", " + c2.rgb + ")"
 
           $scope.rollBg = ->
-            uxIcon.find(".hidden").css "background", $scope.newGradient()
-            uxIcon.find(".ux").toggleClass "hidden"
+            angular.element(uxIcon).children(".hidden").css "background", $scope.newGradient()
+            angular.element(uxIcon).children(".ux").toggleClass "hidden"
             return
 
           angular.element(document).ready ->
             $scope.rollBg()
-            setInterval $scope.rollBg, 5000
+            $interval $scope.rollBg, 5000
             return
 
       )
