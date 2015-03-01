@@ -1,12 +1,12 @@
 {
   "name": "site",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "dependencies": {
     "angular": "~1.2.9",
-    "jQuery": "~2.1.1",
     "angular-loading-bar": "~0.6.0",
     "ng-countdown-ribbon": "~0.1.0",
-    "angular-tooltips": "~0.1.6"
+    "angular-tooltips": "~0.1.6",
+    "angular-scroll": "~0.6.5"
   },
   "devDependencies": {
     "angular-route": "~1.2.26",

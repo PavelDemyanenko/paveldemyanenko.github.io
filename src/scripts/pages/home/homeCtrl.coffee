@@ -4,7 +4,7 @@ angular.module("app.home")
     ngCountdownRibbon.set('2015-03-26', 'http://amzn.com/w/ZWFNUL8AGNLP');
 
     $scope.changeClass = (event)->
-      $(event.currentTarget).parentsUntil('figure').parent(".job-item").toggleClass "active"
+      angular.element(event.currentTarget).parent().parent().toggleClass "active"
       return false
 
     return

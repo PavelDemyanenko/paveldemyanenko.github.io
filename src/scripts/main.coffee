@@ -24,10 +24,13 @@ site.config ($routeProvider) ->
 
   return
 
-site.run ($rootScope) ->
+site.run ($rootScope, $timeout) ->
   #TODO: https://github.com/chieffancypants/angular-loading-bar/issues/153
-  $rootScope.$on "cfpLoadingBar:completed", (data, event)->
-    $('body').show()
+  $rootScope.$on "cfpLoadingBar:completed", (data, event) ->
+    $timeout (->
+      angular.element(document).find('body').css('display', 'flex')
+      return
+    ), 1000
     return
 
   return
