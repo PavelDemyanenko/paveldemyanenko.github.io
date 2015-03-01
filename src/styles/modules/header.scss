@@ -1,6 +1,7 @@
 @import "../components/header/header-menu";
 
 header {
+  @include transition(all 0.2s ease-in-out);
   background-color: white;
   display: block;
   position: fixed;
@@ -15,6 +16,24 @@ header {
     display: inline-block;
     margin: 0 auto;
     font-size: 34px;
+  }
+  .shadow-border {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 64px;
+    display: none;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
+  }
+  &.shrink {
+    height: 64px;
+    line-height: 64px;
+    .logo {
+      font-size: 14px;
+    }
+    .shadow-border {
+      display: block;
+    }
   }
 }
 
