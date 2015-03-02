@@ -3,6 +3,7 @@ footer {
   @include outer-container;
   p {
     &.issues {
+      text-align: center;
       margin-bottom: 10px;
       a {
         height: 20px;

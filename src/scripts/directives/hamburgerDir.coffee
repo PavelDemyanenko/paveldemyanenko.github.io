@@ -13,6 +13,8 @@ angular.module("app.directives")
           $scope.hide = ->
             menu.removeClass "open"
             toggle.removeClass "open"
+            angular.element(document).find("header").removeClass "static"
+            angular.element(document).find(".page").removeClass "static"
             return
 
           win.bind "resize.body", $scope.hide
@@ -38,6 +40,8 @@ angular.module("app.directives")
     restrict: "C"
     link: ($scope, element, attrs, hamburgerMenu) ->
       element.on "click", ->
+        angular.element(document).find("header").toggleClass("static")
+        angular.element(document.querySelector('.page')).toggleClass("static")
         element.toggleClass "open"
         hamburgerMenu.toggle()
         return

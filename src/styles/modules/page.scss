@@ -6,8 +6,12 @@
   padding-top: 145px;
   font-family: $font_family;
   @include outer-container;
+  -webkit-flex: 1;
   flex: 1;
   p {
     color: #333;
+  }
+  &.static {
+    padding-top: 0;
   }
 }

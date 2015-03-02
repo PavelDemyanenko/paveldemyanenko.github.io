@@ -34,7 +34,7 @@ site.run ($rootScope, $timeout) ->
   #TODO: https://github.com/chieffancypants/angular-loading-bar/issues/153
   $rootScope.$on "cfpLoadingBar:completed", (data, event) ->
     $timeout (->
-      angular.element(document).find("body").css("display", "flex")
+      angular.element(document).find("body").addClass("shown")
       return
     ), 1000
     return

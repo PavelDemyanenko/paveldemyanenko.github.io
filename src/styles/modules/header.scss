@@ -12,6 +12,7 @@ header {
   font-family: $font_family;
   text-align: center;
   z-index: 1001;
+  opacity: 0.95;
   .logo {
     display: inline-block;
     margin: 0 auto;
@@ -28,13 +29,15 @@ header {
   &.shrink {
     height: 64px;
     line-height: 64px;
-    opacity: 0.95;
     .logo {
       font-size: 14px;
     }
     .shadow-border {
       display: block;
     }
+  }
+  &.static {
+    position: static;
   }
 }
 

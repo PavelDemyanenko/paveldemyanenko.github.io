@@ -38,9 +38,13 @@ body.loaded {
 }
 
 body {
-  display: flex;
   min-height: 100vh;
+  -webkit-flex-direction: column;
   flex-direction: column;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  &.shown {
+    display: flex !important;
+    display: -webkit-flex !important;
+  }
 }
