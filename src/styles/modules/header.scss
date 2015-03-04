@@ -38,6 +38,11 @@ header {
   }
   &.static {
     position: static;
+    height: 0;
+    @include transition(none);
+    .shadow-border {
+      display: none;
+    }
   }
 }
 
