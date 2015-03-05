@@ -14,7 +14,6 @@ $menuItemHeight: 100 / $numberOfMenuItems;
   &.open {
     .hamburger-list {
       position: fixed;
-      overflow-y: hidden;
       z-index: 1;
       opacity: 1;
       top: 0;
