@@ -22,8 +22,9 @@ angular.module("app.directives")
           return "radial-gradient(at top left, " + c1.rgb + ", " + c2.rgb + ")"
 
         $scope.rollBg = ->
-          angular.element(uxIcon).children(".hidden").css "background", $scope.newGradient()
-          angular.element(uxIcon).children(".ux").toggleClass "hidden"
+          angular.element(document.querySelector('.hidden')).css "background", $scope.newGradient()
+          angular.element(uxIcon).children(".hidden").toggleClass "hidden"
+#          angular.element(document.querySelector('.ux')).toggleClass "hidden"
           return
 
         angular.element(document).ready ->
