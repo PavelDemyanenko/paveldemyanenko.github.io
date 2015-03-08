@@ -39,7 +39,7 @@ body {
   flex-direction: column;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  footer, .page, .ribbon, #loading-bar, #loading-bar-spinner {
+  footer, .page, .ribbon, #loading-bar, #loading-bar-spinner, ._720kb-tooltip {
     @include transition(opacity 2s);
     opacity: 0 !important;
   }
@@ -51,7 +51,7 @@ body {
     opacity: 1;
   }
   &.shown {
-    footer, .ribbon, .page, #loading-bar, #loading-bar-spinner {
+    footer, .ribbon, .page, #loading-bar, #loading-bar-spinner, ._720kb-tooltip {
       opacity: 1 !important;
     }
     header {

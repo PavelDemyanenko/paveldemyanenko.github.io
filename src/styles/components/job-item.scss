@@ -19,12 +19,19 @@ figure {
     text-align: right;
     margin-top: 15px;
     .skill-item {
+      position: relative;
       margin-left: 10px;
       display: inline-block;
       width: 30px;
       height: 30px;
       &.rails {
         width:23px;
+      }
+      &.webpack {
+        top: 4px;
+      }
+      &.react {
+        top: 2px;
       }
       img {
         opacity: 1;
