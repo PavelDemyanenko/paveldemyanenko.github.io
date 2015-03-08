@@ -2,6 +2,8 @@
  * Rules applied to whole project (selection color, container sizes,…)
  */
 
+@import "../components/preloader";
+
 $selection_color: #19bb9b;
 $selection_color_font: #fff;
 
@@ -29,22 +31,34 @@ $selection_color_font: #fff;
   box-sizing: border-box;
 }
 
-body.loading {
-
-}
-
-body.loaded {
-
-}
-
 body {
+  display: flex;
+  display: -webkit-flex;
   min-height: 100vh;
   -webkit-flex-direction: column;
   flex-direction: column;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  footer, .page, .ribbon, #loading-bar, #loading-bar-spinner {
+    @include transition(opacity 2s);
+    opacity: 0 !important;
+  }
+  header {
+    opacity: 0;
+  }
+  .loader {
+    @include transition(opacity .5s);
+    opacity: 1;
+  }
   &.shown {
-    display: flex !important;
-    display: -webkit-flex !important;
+    footer, .ribbon, .page, #loading-bar, #loading-bar-spinner {
+      opacity: 1 !important;
+    }
+    header {
+      opacity: 0.95;
+    }
+    .loader {
+      opacity: 0;
+    }
   }
 }

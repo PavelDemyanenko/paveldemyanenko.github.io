@@ -31,13 +31,10 @@ site.run ($rootScope, $timeout) ->
       angular.element(document).find("header").addClass "shrink"
     else if angular.element(document).scrollTop() < 145
       angular.element(document).find("header").removeClass "shrink"
-  #TODO: https://github.com/chieffancypants/angular-loading-bar/issues/153
-  $rootScope.$on "cfpLoadingBar:completed", (data, event) ->
-    $timeout (->
-      angular.element(document).find("body").addClass("shown")
-      return
-    ), 1000
+  $timeout (->
+    angular.element(document).find("body").addClass("shown")
     return
+  ), 2500
 
   return
 

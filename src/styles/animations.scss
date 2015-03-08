@@ -1,27 +1,5 @@
-.page-home{
-  &.ng-leave {
-
-  }
-  &.ng-enter {
-
+.page {
+  &.ng-enter, &.ng-leave {
+    @include transition(all 0);
   }
 }
-
-.page-about {
-  &.ng-leave {
-
-  }
-  &.ng-enter {
-
-  }
-}
-
-.page-contact {
-  &.ng-leave {
-
-  }
-  &.ng-enter {
-
-  }
-}
-

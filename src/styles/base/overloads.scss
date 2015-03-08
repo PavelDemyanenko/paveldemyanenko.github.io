@@ -1,12 +1,16 @@
-.ribbon {
-  z-index: 1002;
-  height: 32px !important;
-  line-height: 10px !important;
-  text-transform: uppercase;
-  &:before, &:after {
+.ribbon-container {
+  border-bottom: 0 !important;
+  .ribbon {
+    z-index: 1002;
     height: 32px !important;
+    line-height: 10px !important;
+    text-transform: uppercase;
+    &:before, &:after {
+      height: 32px !important;
+    }
   }
 }
+
 
 ._720kb-tooltip {
   display: none;

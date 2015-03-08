@@ -1,7 +1,7 @@
 @import "../components/header/header-menu";
 
 header {
-  @include transition(all 0.2s ease-in-out);
+  @include transition(all 0.2s ease-in-out, opacity 2s);
   background-color: white;
   display: block;
   position: fixed;

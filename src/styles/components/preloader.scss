@@ -1,0 +1,64 @@
+.loader {
+  height: 50px;
+  left: 50%;
+  margin: -25px 0 0 -75px;
+  position: fixed;
+  top: 50%;
+  width: 150px;
+  border-radius: 100%;
+
+  .bar {
+    margin-left: 2px;
+    display: inline-block;
+    background-color: #ffd934;
+    font-size: 0;
+    height: 3px;
+    opacity: 0;
+    width: 25px;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-name: subtleIn;
+    -webkit-animation-timing-function: ease-in-out;
+
+    &:nth-child(1) {
+      -webkit-animation-delay: 0s;
+    }
+
+    &:nth-child(2) {
+      background-color: #8900ce;
+      -webkit-animation-delay: .3s;
+    }
+
+    &:nth-child(3) {
+      background-color: #21c6ce;
+      -webkit-animation-delay: .6s;
+    }
+
+    &:nth-child(4) {
+      background-color: #ec2028;
+      -webkit-animation-delay: .9s;
+    }
+
+    &:nth-child(5) {
+      background-color: #e20074;
+      -webkit-animation-delay: 1.2s;
+    }
+  }
+}
+
+
+@-webkit-keyframes subtleIn {
+  0% {
+    opacity: 0;
+    @include transform(translateY(300%));
+  }
+
+  30% {
+    opacity: 1;
+    @include transform(translateY(0));
+  }
+  100% {
+
+  }
+}

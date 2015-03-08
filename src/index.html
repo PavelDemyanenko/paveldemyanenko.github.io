@@ -47,16 +47,25 @@
 
   <!-- substitute:css -->
 </head>
-<body ng-controller="homeCtrl" style="display: none;">
-  <header>
+<body ng-controller="homeCtrl">
+  <!--TODO: move to directive-->
+  <div class="loader">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
 
+  <header>
     <div data-name="xell" class="logo">PAVEL DEMYANENKO</div>
     <div class="shadow-border"></div>
     <div class="hamburger-menu"></div>
-
   </header>
+
   <div class="page {{ pageClass }}" ng-view >
   </div>
+
   <footer>
       <p class="issues"><i class="fa fa-github-alt"></i>
         Found a bug?
