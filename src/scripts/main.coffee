@@ -12,18 +12,18 @@ site = angular.module "app", [
   require("./pages/contact").name
 ]
 
-site.config ($routeProvider) ->
+site.config ($routeProvider, $locationProvider) ->
   $routeProvider.when("/",
     templateUrl: "pages/home.html"
     controller: "homeCtrl"
   ).when("/about",
     templateUrl: "pages/about.html"
     controller: "aboutCtrl"
-  ).when "/contact",
+  ).when("/contact",
     templateUrl: "pages/contact.html"
-    controller: "contactCtrl"
+    controller: "contactCtrl")
 
-  return
+  $locationProvider.html5Mode(true)
 
 site.run ($rootScope, $timeout) ->
   angular.element(document).on "scroll", ->
@@ -33,8 +33,6 @@ site.run ($rootScope, $timeout) ->
       angular.element(document).find("header").removeClass "shrink"
   $timeout (->
     angular.element(document).find("body").addClass("shown")
-    return
   ), 2500
 
-  return
 

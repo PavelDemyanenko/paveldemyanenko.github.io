@@ -44,6 +44,7 @@ var pho = require('pho-devstack')(gulp, {
   substituter: extend(true, substituteConfig, {
     // cdn: 'http://example.com' // url to your CDN server
     // cdn: '/', // uncomment if you are using absolute paths without CDN
+    'base:url': '/'
   }),
   copy: ['humans.txt', 'bower_components/*/*.{js,map,css}']
 });

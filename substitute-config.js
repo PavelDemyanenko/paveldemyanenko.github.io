@@ -15,5 +15,7 @@ module.exports = {
   'twitter:image': 'https://pbs.twimg.com/profile_images/548880681720217602/IXEfIGwr_400x400.jpeg',
   'twitter:card': 'summary',
   'twitter:site': '@paveldemyanenko`',
-  'twitter:creator': '@paveldemyanenko'
+  'twitter:creator': '@paveldemyanenko',
+
+  'base:url': '/site/dist/'
 };
