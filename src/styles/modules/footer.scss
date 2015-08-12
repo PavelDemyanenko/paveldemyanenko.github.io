@@ -1,17 +1,21 @@
 footer {
   font-family: $font_family;
   @include outer-container;
-  p {
-    &.issues {
+  .issues {
       text-align: center;
       margin-bottom: 10px;
+      i {
+        width: 25px;
+      }
       a {
         height: 20px;
       }
-    }
-    &.copyright {
-      margin-bottom: 20px;
-      text-align: center;
-    }
+      p {
+        display: block;
+      }
+  }
+  .copyright {
+    margin: 20px 0;
+    text-align: center;
   }
 }

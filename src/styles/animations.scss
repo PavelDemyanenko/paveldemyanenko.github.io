@@ -1,5 +1,5 @@
 .page {
   &.ng-enter, &.ng-leave {
-    @include transition(all 0);
+    @include transition(all 0.0s ease);
   }
 }
