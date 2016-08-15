@@ -1,6 +1,6 @@
 @import "ux-icon";
 
-$jobs: t-systems #e20074, evrone #ec2028, mystery #21c6ce, id-company #8900ce, university #ffd934, jivosite rgb(68, 187, 110);
+$jobs: igooods #1a3c7b, t-systems #e20074, evrone #ec2028, mystery #21c6ce, id-company #8900ce, university #ffd934, jivosite rgb(68, 187, 110);
 
 figure {
   position: relative;
@@ -24,8 +24,25 @@ figure {
       display: inline-block;
       width: 30px;
       height: 30px;
+      &:first-child {
+        margin-left: 0;
+      }
       &.rails {
-        width:23px;
+        width: 23px;
+      }
+      &.java {
+        position: relative;
+        top: -4px;
+      }
+      &.php {
+        width: 45px;
+        position: relative;
+        top: -1px;
+        right: -3px;
+      }
+      &.sketch {
+        width: 40px;
+        height: 34px;
       }
       &.webpack {
         top: 4px;
