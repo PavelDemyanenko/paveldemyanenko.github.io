@@ -15,11 +15,6 @@ line-height:1.45em;
 background:#073642 url(/images/noise.png?1357400952) top left!important;
 border-right:1px solid #00232c!important;
 text-shadow:#021014 0 -1px;
--moz-border-radius:0;
--o-border-radius:0;
--ms-border-radius:0;
--khtml-border-radius:0;
--webkit-border-radius:0;
 border-radius:0;
 padding:.8em!important;
 }
@@ -71,11 +66,6 @@ top:.4em;
 
 pre {
 background:#002b36 url(/images/noise.png?1357400952) top left;
--moz-border-radius:.4em;
--o-border-radius:.4em;
--ms-border-radius:.4em;
--khtml-border-radius:.4em;
--webkit-border-radius:.4em;
 border-radius:.4em;
 border:1px solid #05232b;
 line-height:1.45em;
@@ -90,16 +80,8 @@ padding:.8em 1em;
 
 h3.filename+pre {
 -moz-border-top-left-radius:0;
--o-border-top-left-radius:0;
--ms-border-top-left-radius:0;
--khtml-border-top-left-radius:0;
--webkit-border-top-left-radius:0;
 border-top-left-radius:0;
 -moz-border-top-right-radius:0;
--o-border-top-right-radius:0;
--ms-border-top-right-radius:0;
--khtml-border-top-right-radius:0;
--webkit-border-top-right-radius:0;
 border-top-right-radius:0;
 }
 
@@ -111,11 +93,6 @@ font-size:.8em;
 line-height:1.5em;
 color:#555;
 border:1px solid #ddd;
--moz-border-radius:.4em;
--o-border-radius:.4em;
--ms-border-radius:.4em;
--khtml-border-radius:.4em;
--webkit-border-radius:.4em;
 border-radius:.4em;
 margin:-1px 0;
 padding:0 .3em;
@@ -235,11 +212,6 @@ overflow-x:auto;
 
 .highlight pre,.gist-highlight pre {
 background:none;
--moz-border-radius:none;
--o-border-radius:none;
--ms-border-radius:none;
--khtml-border-radius:none;
--webkit-border-radius:none;
 border-radius:none;
 border:none;
 margin-bottom:0;
@@ -253,7 +225,6 @@ background:rgba(255,255,255,0.15);
 
 pre::-webkit-scrollbar-thumb:horizontal,.highlight::-webkit-scrollbar-thumb:horizontal,.gist-highlight::-webkit-scrollbar-thumb:horizontal {
 background:rgba(255,255,255,0.2);
--webkit-border-radius:4px;
 border-radius:4px;
 }
 
@@ -281,16 +252,8 @@ color:#474747;
 font-weight:400;
 margin-bottom:0;
 -moz-border-top-left-radius:5px;
--o-border-top-left-radius:5px;
--ms-border-top-left-radius:5px;
--khtml-border-top-left-radius:5px;
--webkit-border-top-left-radius:5px;
 border-top-left-radius:5px;
 -moz-border-top-right-radius:5px;
--o-border-top-right-radius:5px;
--ms-border-top-right-radius:5px;
--khtml-border-top-right-radius:5px;
--webkit-border-top-right-radius:5px;
 border-top-right-radius:5px;
 font-family:"Helvetica Neue", Arial, "Lucida Grande", "Lucida Sans Unicode", Lucida, sans-serif;
 background:#aaa url(/images/code_bg.png?1357400952) top repeat-x;
@@ -457,8 +420,6 @@ padding:0;
 
 input[type="search"] {
 -webkit-appearance:textfield;
--moz-box-sizing:content-box;
--webkit-box-sizing:content-box;
 box-sizing:content-box;
 }
 
@@ -481,8 +442,16 @@ border-collapse:collapse;
 border-spacing:0;
 }
 
+::-moz-selection,::-moz-selection {
+background:#ffff9e;
+}
+
 ::selection,::-moz-selection {
 background:#ffff9e;
+}
+
+img::-moz-selection,img::-moz-selection {
+background:transparent;
 }
 
 img::selection,img::-moz-selection {
@@ -681,11 +650,6 @@ src:url(../font/SourceCodePro-Regular-webfont.eot?#iefix) format(embedded-openty
 
 button,input[type=submit] {
 background:#3e444d;
--moz-border-radius:3px;
--o-border-radius:3px;
--ms-border-radius:3px;
--khtml-border-radius:3px;
--webkit-border-radius:3px;
 border-radius:3px;
 font-family:Edmondsans, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 color:#f6f8fb!important;
@@ -698,10 +662,7 @@ padding:6px 12px;
 header {
 background:#3e444d;
 -o-box-shadow:0;
--moz-box-shadow:0;
 -ms-box-shadow:0;
--khtml-box-shadow:0;
--webkit-box-shadow:0;
 box-shadow:0;
 }
 
@@ -878,10 +839,7 @@ color:#586e75!important;
 
 figure.code,.gist-file,pre,figure.code .highlight pre,.gist-file .highlight pre,pre .highlight pre {
 -o-box-shadow:0;
--moz-box-shadow:0;
 -ms-box-shadow:0;
--khtml-box-shadow:0;
--webkit-box-shadow:0;
 box-shadow:0;
 }
 
@@ -1016,7 +974,8 @@ padding-right:20px;
 background:transparent!important;
 color:#000!important;
 text-shadow:none!important;
-filter:none!important;
+-webkit-filter:none!important;
+        filter:none!important;
 -ms-filter:none!important;
 }
 
