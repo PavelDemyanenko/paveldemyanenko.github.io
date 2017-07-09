@@ -2,11 +2,14 @@
   border-bottom: 0 !important;
   .ribbon {
     z-index: 1002;
-    height: 32px !important;
-    line-height: 10px !important;
+    height: 36px !important;
+    line-height: 13px !important;
     text-transform: uppercase;
     &:before, &:after {
       height: 32px !important;
+    }
+    &:after {
+      border-width: 2px 0px 2px 0 !important;
     }
   }
 }
@@ -20,4 +23,3 @@
   display: block;
   opacity: 1;
 }
-

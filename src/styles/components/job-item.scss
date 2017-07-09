@@ -103,6 +103,11 @@ figure {
     letter-spacing: 1px;
     font-size: 68.5%;
     text-align: right;
+    .ux-icon {
+      left: -35px;
+      position: absolute;
+      top: -7px;
+    }
   }
   .short-description {
     margin-top: 25px;

@@ -3,7 +3,7 @@ module.exports = {
 
   description: 'Fullstack web developer with focus on frontend and performance.',
   author: 'Pavel Demyanenko',
-  keywords: 'front-end, user interface, user experience, angular.js, node.js, ruby on rails, javascript, html, css, portfolio',
+  keywords: 'front-end, user interface, user experience, reactjs, angularjs, nodejs, graphql, elixir, phoenix, ruby on rails, javascript, html, css, portfolio',
 
   'og:url': 'http://www.paveldemyanenko.com',
   'og:image': 'https://octodex.github.com/images/front-end-conftocat.png',
@@ -17,5 +17,5 @@ module.exports = {
   'twitter:site': '@paveldemyanenko`',
   'twitter:creator': '@paveldemyanenko',
 
-  'base:url': '/site/dist/'
+  'base:url': '/'
 };
