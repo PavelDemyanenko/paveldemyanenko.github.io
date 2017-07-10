@@ -2,7 +2,6 @@ site = angular.module "app", [
   "angular-loading-bar",
   "ngAnimate",
   "ngRoute",
-  "720kb.tooltips",
   "ngCountdownRibbon",
   "duScroll",
   require("./services").name,
@@ -34,5 +33,3 @@ site.run ($rootScope, $timeout) ->
   $timeout (->
     angular.element(document).find("body").addClass("shown")
   ), 2500
-
-
