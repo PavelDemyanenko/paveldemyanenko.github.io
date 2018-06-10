@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Приквел к Sails"
-date: 2015-01-11 20:50:46 +0300
+date: "2015-01-11 20:50:46 +0300"
 comments: true
 categories:
 ---

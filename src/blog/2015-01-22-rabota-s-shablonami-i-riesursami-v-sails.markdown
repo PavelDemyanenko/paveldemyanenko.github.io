@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Работа с шаблонами и ресурсами в Sails"
-date: 2015-01-22 19:02:08 +0300
+date: "2015-01-22 19:02:08 +0300"
 comments: true
 categories:
 ---

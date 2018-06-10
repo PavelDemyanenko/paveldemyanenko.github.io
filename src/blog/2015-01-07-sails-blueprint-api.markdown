@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Sails Blueprint API"
-date: 2015-01-07 22:52:43 +0300
+date: "2015-01-07 22:52:43 +0300"
 comments: true
 categories:
 ---

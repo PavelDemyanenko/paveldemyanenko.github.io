@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Ауентификация с JSON Web Tokens"
-date: 2015-01-27 20:50:32 +0300
+date: "2015-01-27 20:50:32 +0300"
 comments: true
 categories:
 ---
