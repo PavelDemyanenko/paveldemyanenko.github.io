@@ -1,8 +1,0 @@
-Developer: Pavel Demyanenko
-Contact: mail[at]paveldemyanenko.com
-Twitter: @paveldemyanenko
-From: Voronezh, Russia
-Last update: 2017/09/07
-Language: English
-Doctype: HTML5
-Favicon: by Hand-Drawn Goods (http://handdrawngoods.com/), license: Creative Commons (Attribution 3.0 Unported)
